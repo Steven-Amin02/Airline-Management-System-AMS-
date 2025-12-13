@@ -14,34 +14,34 @@ namespace Airline_Management_System__AMS_.Models
         [Required]
         [Display(Name = "First Name")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "First Name must be between 2 and 50 characters.")]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = string.Empty;
 
         [Required]
         [Display(Name = "Last Name")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Last Name must be between 2 and 50 characters.")]
-        public string LastName { get; set; }
+        public string LastName { get; set; } = string.Empty;
 
         [Display(Name = "Full Name")]
         public string FullName => $"{FirstName} {LastName}";
 
         [Required]
         [EmailAddress]
-        public string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
         [Required]
         [Phone]
         [Display(Name = "Phone Number")]
         [RegularExpression(@"^\+?[0-9\s-]{8,20}$", ErrorMessage = "Please enter a valid phone number (digits, spaces, or dashes only).")]
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; } = string.Empty;
 
         [Required]
         [Display(Name = "Passport Number")]
         [StringLength(20, MinimumLength = 5, ErrorMessage = "Passport Number must be between 5 and 20 characters.")]
-        public string PassportNumber { get; set; }
+        public string PassportNumber { get; set; } = string.Empty;
 
         [Display(Name = "National ID")]
         [StringLength(14, MinimumLength = 14, ErrorMessage = "National ID must be 14 digits")]
-        public string NationalId { get; set; }
+        public string NationalId { get; set; } = string.Empty;
 
         [Display(Name = "Archived")]
         public bool IsArchived { get; set; } = false;

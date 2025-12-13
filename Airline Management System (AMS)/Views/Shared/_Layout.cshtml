@@ -1,5 +1,15 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+
+<!-- Localizer is now injected via _ViewImports -->
+@{
+    var isRtl = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft;
+    var dir = isRtl ? "rtl" : "ltr";
+    var lang = CultureInfo.CurrentCulture.Name;
+    var bootstrapFile = isRtl ? "bootstrap.rtl.min.css" : "bootstrap.min.css";
+}
+<!DOCTYPE html>
+<html lang="@lang" dir="@dir">
 
 <head>
     <meta charset="utf-8" />
@@ -17,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/@bootstrapFile" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Airline_Management_System__AMS_.styles.css" asp-append-version="true" />
@@ -237,16 +247,39 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">@Localizer["Home"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#destinations">Destinations</a>
+                            <a class="nav-link" href="#destinations">@Localizer["Destinations"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#services">Services</a>
+                            <a class="nav-link" href="#services">@Localizer["Services"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-controller="Home" asp-action="Privacy">@Localizer["Privacy"]</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-globe"></i>
+                                @CultureInfo.CurrentCulture.TwoLetterISOLanguageName.ToUpper()
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="langDropdown">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Culture" asp-action="SetCulture"
+                                        asp-route-culture="en"
+                                        asp-route-returnUrl="@Context.Request.Path@Context.Request.QueryString">
+                                        English
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Culture" asp-action="SetCulture"
+                                        asp-route-culture="ar"
+                                        asp-route-returnUrl="@Context.Request.Path@Context.Request.QueryString">
+                                        العربية
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                     <div class="user-menu">
@@ -258,31 +291,31 @@
                             @if (User.IsInRole("Admin"))
                             {
                                 <a asp-controller="AdminDashboard" asp-action="Index" class="btn btn-nav btn-dashboard">
-                                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                                    <i class="fas fa-tachometer-alt"></i> @Localizer["Dashboard"]
                                 </a>
                             }
                             else
                             {
                                 <a asp-controller="UserDashboard" asp-action="Index" class="btn btn-nav btn-dashboard">
-                                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                                    <i class="fas fa-tachometer-alt"></i> @Localizer["Dashboard"]
                                 </a>
                             }
                             <a asp-controller="Feedback" asp-action="MyFeedback" class="btn btn-nav btn-login">
-                                <i class="fas fa-comment-alt"></i> Feedback
+                                <i class="fas fa-comment-alt"></i> @Localizer["Feedback"]
                             </a>
                             <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
                                 <button type="submit" class="btn btn-nav btn-login">
-                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                    <i class="fas fa-sign-out-alt"></i> @Localizer["Logout"]
                                 </button>
                             </form>
                         }
                         else
                         {
                             <a asp-controller="Account" asp-action="Login" class="btn btn-nav btn-login">
-                                <i class="fas fa-sign-in-alt"></i> Login
+                                <i class="fas fa-sign-in-alt"></i> @Localizer["Login"]
                             </a>
                             <a asp-controller="Account" asp-action="Register" class="btn btn-nav btn-register">
-                                <i class="fas fa-user-plus"></i> Register
+                                <i class="fas fa-user-plus"></i> @Localizer["Register"]
                             </a>
                         }
                     </div>
@@ -300,8 +333,7 @@
             <div class="footer-grid">
                 <div class="footer-section">
                     <h4><i class="fas fa-plane-departure"></i> AMS Airlines</h4>
-                    <p>Your trusted partner for seamless air travel management. Book flights, manage passengers, and
-                        explore the world with confidence.</p>
+                    <p>@Localizer["Your trusted partner for seamless air travel management. Book flights, manage passengers, and explore the world with confidence."]</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -310,25 +342,25 @@
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4>@Localizer["Quick Links"]</h4>
                     <ul>
-                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a href="#destinations">Destinations</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a asp-controller="Account" asp-action="Register">Register</a></li>
+                        <li><a asp-controller="Home" asp-action="Index">@Localizer["Home"]</a></li>
+                        <li><a href="#destinations">@Localizer["Destinations"]</a></li>
+                        <li><a href="#services">@Localizer["Services"]</a></li>
+                        <li><a asp-controller="Booking" asp-action="Index">@Localizer["Book Now"]</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Support</h4>
+                    <h4>@Localizer["Support"]</h4>
                     <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a asp-controller="Home" asp-action="Privacy">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">@Localizer["Help Center"]</a></li>
+                        <li><a href="#">@Localizer["Contact Us"]</a></li>
+                        <li><a asp-controller="Home" asp-action="Privacy">@Localizer["Privacy Policy"]</a></li>
+                        <li><a href="#">@Localizer["Terms of Service"]</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Contact</h4>
+                    <h4>@Localizer["Contact"]</h4>
                     <ul>
                         <li><i class="fas fa-envelope"></i> support@amsairlines.com</li>
                         <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
@@ -337,9 +369,9 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 AMS Airlines. All rights reserved. Built with <i class="fas fa-heart"
-                        style="color: #f56565;"></i> for travelers worldwide.</p>
-            </div>
+            <p>&copy; @DateTime.Now.Year AMS Airlines. @Localizer["All rights reserved."] | @Localizer["Built with"] <i
+                    class="fas fa-heart text-danger"></i> @Localizer["for travelers worldwide."]</p>
+        </div>
         </div>
     </footer>
 

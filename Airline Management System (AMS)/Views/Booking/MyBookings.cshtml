@@ -1,4 +1,5 @@
 ﻿@model List<Airline_Management_System__AMS_.Models.Booking>
+
 @{
     ViewData["Title"] = "My Bookings";
 }
@@ -8,9 +9,9 @@
     <div class="bookings-header">
         <div class="header-content">
             <h1 class="section-title">
-                <i class="fas fa-suitcase-rolling"></i> My Bookings
+                <i class="fas fa-suitcase-rolling"></i> @Localizer["My Bookings"]
             </h1>
-            <p class="subtitle">Manage all your flight bookings in one place</p>
+            <p class="subtitle">@Localizer["Manage all your flight bookings in one place"]</p>
         </div>
 
         <div class="stats-container">
@@ -20,7 +21,7 @@
                 </div>
                 <div class="stat-info">
                     <span class="stat-number">@Model.Count</span>
-                    <span class="stat-label">Total Bookings</span>
+                    <span class="stat-label">@Localizer["Total Bookings"]</span>
                 </div>
             </div>
 
@@ -30,7 +31,7 @@
                 </div>
                 <div class="stat-info">
                     <span class="stat-number">@Model.Count(b => b.Status == BookingStatus.Booked)</span>
-                    <span class="stat-label">Active</span>
+                    <span class="stat-label">@Localizer["Active"]</span>
                 </div>
             </div>
 
@@ -40,7 +41,7 @@
                 </div>
                 <div class="stat-info">
                     <span class="stat-number">@Model.Count(b => b.Status == BookingStatus.Cancelled)</span>
-                    <span class="stat-label">Cancelled</span>
+                    <span class="stat-label">@Localizer["Cancelled"]</span>
                 </div>
             </div>
         </div>
@@ -49,15 +50,19 @@
     <!-- Filters -->
     <div class="filters-section">
         <div class="filter-tabs">
-            <button class="filter-btn active" data-filter="all">All Bookings</button>
-            <button class="filter-btn" data-filter="booked">Active (@Model.Count(b => b.Status == BookingStatus.Booked))</button>
-            <button class="filter-btn" data-filter="checkedin">Checked In (@Model.Count(b => b.Status == BookingStatus.CheckedIn))</button>
-            <button class="filter-btn" data-filter="cancelled">Cancelled (@Model.Count(b => b.Status == BookingStatus.Cancelled))</button>
+            <button class="filter-btn active" data-filter="all">@Localizer["All Bookings"]</button>
+            <button class="filter-btn" data-filter="booked">@Localizer["Active"] (@Model.Count(b => b.Status ==
+                BookingStatus.Booked))</button>
+            <button class="filter-btn" data-filter="checkedin">@Localizer["Checked In"] (@Model.Count(b => b.Status ==
+                BookingStatus.CheckedIn))</button>
+            <button class="filter-btn" data-filter="cancelled">@Localizer["Cancelled"] (@Model.Count(b => b.Status ==
+                BookingStatus.Cancelled))</button>
         </div>
 
         <div class="search-box">
             <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Search by flight number, destination, or seat...">
+            <input type="text" id="searchInput"
+                placeholder="@Localizer["Search by flight number, destination, or seat..."]">
         </div>
     </div>
 
@@ -68,10 +73,10 @@
             <div class="empty-icon">
                 <i class="fas fa-plane-slash"></i>
             </div>
-            <h3>No Bookings Yet</h3>
-            <p>You haven't made any flight bookings. Start your journey by booking a flight!</p>
+            <h3>@Localizer["No Bookings Yet"]</h3>
+            <p>@Localizer["Start your journey by booking a flight!"]</p>
             <a href="/home" class="cta-btn">
-                <i class="fas fa-search"></i> Search Flights
+                <i class="fas fa-search"></i> @Localizer["Search Trips"]
             </a>
         </div>
     }
@@ -117,7 +122,7 @@
                             <div class="line">
                                 <i class="fas fa-plane"></i>
                             </div>
-                            <div class="stops">Direct</div>
+                            <div class="stops">@Localizer["Direct"]</div>
                         </div>
 
                         <div class="city-info">
@@ -131,65 +136,67 @@
                     <div class="details-grid">
                         <div class="detail-item">
                             <span class="detail-label">
-                                <i class="fas fa-user"></i> Passenger
+                                <i class="fas fa-user"></i> @Localizer["Passenger"]
                             </span>
                             <span class="detail-value">@booking.Passenger.FullName</span>
                         </div>
 
                         <div class="detail-item">
                             <span class="detail-label">
-                                <i class="fas fa-chair"></i> Seat
+                                <i class="fas fa-chair"></i> @Localizer["Seat"]
                             </span>
                             <span class="detail-value seat-number">@booking.SeatNumber</span>
                         </div>
 
                         <div class="detail-item">
                             <span class="detail-label">
-                                <i class="fas fa-tag"></i> Price
+                                <i class="fas fa-tag"></i> @Localizer["Price"]
                             </span>
                             <span class="detail-value price">@booking.TicketPrice.ToString("C")</span>
                         </div>
 
                         <div class="detail-item">
                             <span class="detail-label">
-                                <i class="fas fa-calendar"></i> Booked On
+                                <i class="fas fa-calendar"></i> @Localizer["Booked On"]
                             </span>
                             <span class="detail-value">@booking.BookingDate.ToString("MMM dd, yyyy")</span>
                         </div>
                     </div>
 
                     @* <!-- Countdown (if upcoming flight) -->
-                    @if (booking.Status == BookingStatus.Booked && booking.Flight.DepartureTime > DateTime.Now)
-                    {
-                        <div class="countdown-section">
-                            <span class="countdown-label">
-                                <i class="fas fa-clock"></i> Departs in
-                            </span>
-                            <span class="countdown-timer" data-departure="@booking.Flight.DepartureTime.ToString("o")">
-                                Calculating...
-                            </span>
-                        </div> 
-                    }*@
+            @if (booking.Status == BookingStatus.Booked && booking.Flight.DepartureTime > DateTime.Now)
+            {
+            <div class="countdown-section">
+            <span class="countdown-label">
+            <i class="fas fa-clock"></i> Departs in
+            </span>
+            <span class="countdown-timer" data-departure="@booking.Flight.DepartureTime.ToString("o")">
+            Calculating...
+            </span>
+            </div>
+            }*@
 
                     <!-- Action Buttons -->
                     <div class="action-buttons">
                         <a href="/Booking/Details/@booking.Id" class="btn-primary">
-                            <i class="fas fa-ticket-alt"></i> View Ticket
+                            <i class="fas fa-ticket-alt"></i> @Localizer["View Ticket"]
                         </a>
 
                         @if (booking.Status == BookingStatus.Booked)
                         {
                             <div class="btn-group">
                                 <a href="/Booking/Edit?bookingId=@booking.Id" class="btn-secondary">
-                                    <i class="fas fa-edit"></i> Edit
+                                    <i class="fas fa-edit"></i> @Localizer["Edit"]
                                 </a>
 
                                 @if (booking.Flight.DepartureTime > DateTime.Now.AddHours(24))
                                 {
-                                    <form asp-action="Cancel" asp-controller="Booking" method="post" onsubmit="return confirm('Are you sure you want to cancel this booking?');" style="display:inline;">
+                                    <form asp-action="Cancel" asp-controller="Booking" method="post"
+                                        onsubmit="return confirm('@Localizer["Are you sure you want to cancel this booking?"]');"
+                                        style="display:inline;">
                                         <input type="hidden" name="id" value="@booking.Id" />
                                         <button type="submit" class="btn-danger">
-                                            <i class="fas fa-times"></i> Cancel
+                                            <i class="fas fa-times"></i> @Localizer["Cancel"]
                                         </button>
                                     </form>
                                 }
@@ -205,14 +212,14 @@
     <div class="quick-actions">
         <a href="/home" class="quick-action-btn">
             <i class="fas fa-search"></i>
-            <span>Book New Flight</span>
+            <span>@Localizer["Book New Flight"]</span>
         </a>
 
-        
+
 
         <button onclick="window.print()" class="quick-action-btn">
             <i class="fas fa-print"></i>
-            <span>Print All</span>
+            <span>@Localizer["Print All"]</span>
         </button>
     </div>
 </div>
@@ -285,9 +292,9 @@
         gap: 15px;
     }
 
-        .section-title i {
-            font-size: 2.5rem;
-        }
+    .section-title i {
+        font-size: 2.5rem;
+    }
 
     .subtitle {
         font-size: 1.1rem;
@@ -315,9 +322,9 @@
         transition: transform 0.3s ease;
     }
 
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
+    .stat-card:hover {
+        transform: translateY(-5px);
+    }
 
     .stat-icon {
         width: 60px;
@@ -331,13 +338,13 @@
         font-size: 1.8rem;
     }
 
-        .stat-icon.active {
-            background: var(--success-color);
-        }
+    .stat-icon.active {
+        background: var(--success-color);
+    }
 
-        .stat-icon.cancelled {
-            background: var(--danger-color);
-        }
+    .stat-icon.cancelled {
+        background: var(--danger-color);
+    }
 
     .stat-info {
         display: flex;
@@ -388,43 +395,43 @@
         transition: all 0.3s ease;
     }
 
-        .filter-btn:hover {
-            border-color: var(--primary-light);
-            color: var(--primary-light);
-        }
+    .filter-btn:hover {
+        border-color: var(--primary-light);
+        color: var(--primary-light);
+    }
 
-        .filter-btn.active {
-            background: var(--primary-color);
-            border-color: var(--primary-color);
-            color: white;
-        }
+    .filter-btn.active {
+        background: var(--primary-color);
+        border-color: var(--primary-color);
+        color: white;
+    }
 
     .search-box {
         position: relative;
         min-width: 300px;
     }
 
-        .search-box i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-light);
-        }
+    .search-box i {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-light);
+    }
 
-        .search-box input {
-            width: 100%;
-            padding: 12px 20px 12px 45px;
-            border: 2px solid var(--border-color);
-            border-radius: 25px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
+    .search-box input {
+        width: 100%;
+        padding: 12px 20px 12px 45px;
+        border: 2px solid var(--border-color);
+        border-radius: 25px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
 
-            .search-box input:focus {
-                outline: none;
-                border-color: var(--primary-color);
-            }
+    .search-box input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+    }
 
     /* Empty State */
     .empty-state {
@@ -469,10 +476,10 @@
         transition: all 0.3s ease;
     }
 
-        .cta-btn:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-        }
+    .cta-btn:hover {
+        background: var(--primary-light);
+        transform: translateY(-2px);
+    }
 
     /* Bookings Grid */
     .bookings-grid {
@@ -491,28 +498,28 @@
         overflow: hidden;
     }
 
-        .booking-card:hover {
-            box-shadow: var(--hover-shadow);
-            transform: translateY(-5px);
-        }
+    .booking-card:hover {
+        box-shadow: var(--hover-shadow);
+        transform: translateY(-5px);
+    }
 
-        .booking-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 8px;
-            height: 100%;
-            background: var(--primary-color);
-        }
+    .booking-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 100%;
+        background: var(--primary-color);
+    }
 
-        .booking-card[data-status="checkedin"]::before {
-            background: var(--warning-color);
-        }
+    .booking-card[data-status="checkedin"]::before {
+        background: var(--warning-color);
+    }
 
-        .booking-card[data-status="cancelled"]::before {
-            background: var(--danger-color);
-        }
+    .booking-card[data-status="cancelled"]::before {
+        background: var(--danger-color);
+    }
 
     /* Booking Header */
     .booking-header {
@@ -560,20 +567,20 @@
         display: inline-block;
     }
 
-        .status-badge.booked {
-            background: var(--success-color);
-            color: white;
-        }
+    .status-badge.booked {
+        background: var(--success-color);
+        color: white;
+    }
 
-        .status-badge.checkedin {
-            background: var(--warning-color);
-            color: #000;
-        }
+    .status-badge.checkedin {
+        background: var(--warning-color);
+        color: #000;
+    }
 
-        .status-badge.cancelled {
-            background: var(--danger-color);
-            color: white;
-        }
+    .status-badge.cancelled {
+        background: var(--danger-color);
+        color: white;
+    }
 
     .booking-id {
         font-size: 0.9rem;
@@ -639,14 +646,14 @@
         justify-content: center;
     }
 
-        .line i {
-            background: white;
-            padding: 10px;
-            border-radius: 50%;
-            color: var(--primary-color);
-            border: 3px solid var(--border-color);
-            font-size: 1.2rem;
-        }
+    .line i {
+        background: white;
+        padding: 10px;
+        border-radius: 50%;
+        color: var(--primary-color);
+        border: 3px solid var(--border-color);
+        font-size: 1.2rem;
+    }
 
     .stops {
         font-size: 0.9rem;
@@ -679,9 +686,9 @@
         gap: 8px;
     }
 
-        .detail-label i {
-            width: 20px;
-        }
+    .detail-label i {
+        width: 20px;
+    }
 
     .detail-value {
         font-size: 1.1rem;
@@ -741,7 +748,9 @@
         gap: 10px;
     }
 
-    .btn-primary, .btn-secondary, .btn-danger {
+    .btn-primary,
+    .btn-secondary,
+    .btn-danger {
         padding: 12px 25px;
         border-radius: 12px;
         text-decoration: none;
@@ -757,10 +766,10 @@
         color: white;
     }
 
-        .btn-primary:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-        }
+    .btn-primary:hover {
+        background: var(--primary-light);
+        transform: translateY(-2px);
+    }
 
     .btn-secondary {
         background: white;
@@ -768,11 +777,11 @@
         border: 2px solid var(--primary-color);
     }
 
-        .btn-secondary:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-        }
+    .btn-secondary:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-2px);
+    }
 
     .btn-danger {
         background: var(--danger-color);
@@ -780,10 +789,10 @@
         border: none;
     }
 
-        .btn-danger:hover {
-            background: #c82333;
-            transform: translateY(-2px);
-        }
+    .btn-danger:hover {
+        background: #c82333;
+        transform: translateY(-2px);
+    }
 
     /* Quick Actions */
     .quick-actions {
@@ -808,19 +817,19 @@
         min-width: 200px;
     }
 
-        .quick-action-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--hover-shadow);
-        }
+    .quick-action-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--hover-shadow);
+    }
 
-        .quick-action-btn i {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-        }
+    .quick-action-btn i {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+    }
 
-        .quick-action-btn span {
-            font-weight: 600;
-        }
+    .quick-action-btn span {
+        font-weight: 600;
+    }
 
     /* Responsive Design */
     @@media (max-width: 1200px) {
@@ -906,6 +915,7 @@
     }
 
     @@media print {
+
         .filters-section,
         .action-buttons,
         .quick-actions {
@@ -936,20 +946,20 @@
         transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
-        .toast-message.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .toast-message.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Filter functionality
         const filterButtons = document.querySelectorAll('.filter-btn');
         const bookingCards = document.querySelectorAll('.booking-card');
 
         filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 // Remove active class from all buttons
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 // Add active class to clicked button
@@ -969,7 +979,7 @@
 
         // Search functionality
         const searchInput = document.getElementById('searchInput');
-        searchInput.addEventListener('input', function() {
+        searchInput.addEventListener('input', function () {
             const searchTerm = this.value.toLowerCase();
 
             bookingCards.forEach(card => {
@@ -982,58 +992,58 @@
             });
         });
 
-        @* // Countdown timers
-        function updateCountdowns() {
+    @* // Countdown timers
+            function updateCountdowns() {
             const timers = document.querySelectorAll('.countdown-timer');
 
             timers.forEach(timer => {
-                const departureTime = new Date(timer.dataset.departure);
-                const now = new Date();
-                const diff = departureTime - now;
+            const departureTime = new Date(timer.dataset.departure);
+            const now = new Date();
+            const diff = departureTime - now;
 
-                if (diff > 0) {
-                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            if (diff > 0) {
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-                    if (days > 0) {
-                        timer.textContent = `${days}d ${hours}h ${minutes}m`;
-                    } else {
-                        timer.textContent = `${hours}h ${minutes}m`;
-                    }
-                } else {
-                    timer.textContent = "Departure time passed";
-                    timer.closest('.countdown-section').style.background = 'linear-gradient(135deg, #dc3545, #c82333)';
-                }
+            if (days > 0) {
+            timer.textContent = `${days}d ${hours}h ${minutes}m`;
+            } else {
+            timer.textContent = `${hours}h ${minutes}m`;
+            }
+            } else {
+            timer.textContent = "Departure time passed";
+            timer.closest('.countdown-section').style.background = 'linear-gradient(135deg, #dc3545, #c82333)';
+            }
             });
-        }
+            }
 
-        // Initial update
-        updateCountdowns();
+            // Initial update
+            updateCountdowns();
 
-        // Update every minute
-        setInterval(updateCountdowns, 60000); *@
+            // Update every minute
+            setInterval(updateCountdowns, 60000); *@
 
-        // Hover effects for booking cards
-        bookingCards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px)';
+            // Hover effects for booking cards
+            bookingCards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-8px)';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0)';
+                });
             });
-
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
 
         // Print all functionality
-        window.printAllBookings = function() {
+        window.printAllBookings = function () {
             window.print();
         };
     });
 
     window.addEventListener('DOMContentLoaded', () => {
         const toast = document.getElementById('bookingToast');
-        if(toast){
+        if (toast) {
             toast.classList.add('show');
             setTimeout(() => {
                 toast.classList.remove('show');

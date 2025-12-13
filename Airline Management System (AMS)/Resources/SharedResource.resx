@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="Privacy" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+  <data name="Search Trips" xml:space="preserve">
+    <value>Search Trips</value>
+  </data>
+  <data name="Fly Beyond Boundaries" xml:space="preserve">
+    <value>Fly Beyond Boundaries</value>
+  </data>
+  <data name="Discover the world with AMS Airlines - Your journey begins here" xml:space="preserve">
+    <value>Discover the world with AMS Airlines - Your journey begins here</value>
+  </data>
+</root>

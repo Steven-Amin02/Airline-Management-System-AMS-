@@ -1,5 +1,6 @@
 ﻿@model List<Airline_Management_System__AMS_.Models.Seat>
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 <h2>إعداد الكراسي</h2>
 
 <form method="post" asp-action="SaveSeats">

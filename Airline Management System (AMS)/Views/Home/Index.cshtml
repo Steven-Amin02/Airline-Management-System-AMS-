@@ -1,4 +1,5 @@
 ﻿@model Airline_Management_System__AMS_.ViewModels.FlightSearchViewModel
+
 @{
     ViewData["Title"] = "Home";
 }
@@ -6,8 +7,8 @@
 <!-- HERO SECTION -->
 <section class="hero-section">
     <div class="hero-content">
-        <h1 class="hero-title">Fly Beyond Boundaries</h1>
-        <p class="hero-subtitle">Discover the world with AMS Airlines - Your journey begins here</p>
+        <h1 class="hero-title">@Localizer["Fly Beyond Boundaries"]</h1>
+        <p class="hero-subtitle">@Localizer["Discover the world with AMS Airlines - Your journey begins here"]</p>
 
         <!-- FLIGHT SEARCH FORM -->
         <div class="flight-search-container">
@@ -15,25 +16,25 @@
                 <div class="search-form">
                     <div class="form-group">
                         <label for="Origin">
-                            <i class="fas fa-plane-departure"></i> From
+                            <i class="fas fa-plane-departure"></i> @Localizer["From"]
                         </label>
                         <input type="text" id="Origin" asp-for="Origin" class="form-control"
-                            placeholder="Enter origin city" required />
+                            placeholder="@Localizer["Enter origin city"]" required />
                         <span asp-validation-for="Origin" class="text-danger"></span>
                     </div>
 
                     <div class="form-group">
                         <label for="Destination">
-                            <i class="fas fa-plane-arrival"></i> To
+                            <i class="fas fa-plane-arrival"></i> @Localizer["To"]
                         </label>
                         <input type="text" id="Destination" asp-for="Destination" class="form-control"
-                            placeholder="Enter destination city" required />
+                            placeholder="@Localizer["Enter destination city"]" required />
                         <span asp-validation-for="Destination" class="text-danger"></span>
                     </div>
 
                     <div class="form-group">
                         <label for="DepartureDate">
-                            <i class="fas fa-calendar-alt"></i> Departure
+                            <i class="fas fa-calendar-alt"></i> @Localizer["Departure"]
                         </label>
                         <input type="date" id="DepartureDate" asp-for="DepartureDate" class="form-control" required />
                         <span asp-validation-for="DepartureDate" class="text-danger"></span>
@@ -41,7 +42,7 @@
 
                     <div class="form-group">
                         <label for="ReturnDate">
-                            <i class="fas fa-calendar-check"></i> Return
+                            <i class="fas fa-calendar-check"></i> @Localizer["Return"]
                         </label>
                         <input type="date" id="ReturnDate" asp-for="ReturnDate" class="form-control" required />
                         <span asp-validation-for="ReturnDate" class="text-danger"></span>
@@ -53,7 +54,7 @@
 
                 <div style="text-align: center;">
                     <button type="submit" class="search-btn">
-                        <i class="fas fa-search"></i> Search Trips
+                        <i class="fas fa-search"></i> @Localizer["Search Trips"]
                     </button>
                 </div>
             </form>
@@ -79,12 +80,10 @@
                                 <td>@flight.Origin</td>
                                 <td>@flight.Destination</td>
                                 <td>@flight.DepartureTime.ToString("g")</td>
-								<td>@flight.ArrivalTime.ToString("g")</td>
+                                <td>@flight.ArrivalTime.ToString("g")</td>
                                 <td>
-                                    <a asp-controller="Booking"
-                                       asp-action="Create"
-                                       asp-route-flightId="@flight.FlightId"
-                                       class="btn-primary">
+                                    <a asp-controller="Booking" asp-action="Create" asp-route-flightId="@flight.FlightId"
+                                        class="btn-primary">
                                         Book Ticket
                                     </a>
                                 </td>
@@ -95,7 +94,7 @@
             }
             else if (Model != null)
             {
-                <p style="text-align:center; margin-top:20px; font-size:18px;">No flights found.</p>
+                <p style="text-align:center; margin-top:20px; font-size:18px;">@Localizer["No flights found."]</p>
             }
 
         </div>
@@ -104,8 +103,8 @@
 
 <!-- FEATURED DESTINATIONS SECTION -->
 <section class="destinations-section" id="destinations">
-    <h2 class="section-title">Popular Destinations</h2>
-    <p class="section-subtitle">Explore our most sought-after travel destinations</p>
+    <h2 class="section-title">@Localizer["Popular Destinations"]</h2>
+    <p class="section-subtitle">@Localizer["Explore our most sought-after travel destinations"]</p>
 
     <div class="destinations-grid">
         <div class="destination-card" data-destination="Paris">
@@ -114,7 +113,7 @@
             <div class="destination-overlay">
                 <h3 class="destination-name">Paris, France</h3>
                 <p class="destination-price">From $599</p>
-                <button class="destination-btn">Book Now</button>
+                <button class="destination-btn">@Localizer["Book Now"]</button>
             </div>
         </div>
 
@@ -172,17 +171,17 @@
 
 <!-- SERVICES SECTION -->
 <section class="services-section" id="services">
-    <h2 class="section-title">Why Choose AMS Airlines?</h2>
-    <p class="section-subtitle">Experience excellence in every journey</p>
+    <h2 class="section-title">@Localizer["Why Choose AMS Airlines?"]</h2>
+    <p class="section-subtitle">@Localizer["Experience excellence in every journey"]</p>
 
     <div class="services-grid">
         <div class="service-card">
             <div class="service-icon">
                 <i class="fas fa-ticket-alt"></i>
             </div>
-            <h3 class="service-title">Easy Booking</h3>
+            <h3 class="service-title">@Localizer["Easy Booking"]</h3>
             <p class="service-description">
-                Book your flights in minutes with our intuitive platform. Simple, fast, and secure.
+                @Localizer["Book your flights in minutes with our intuitive platform. Simple, fast, and secure."]
             </p>
         </div>
 
@@ -190,9 +189,9 @@
             <div class="service-icon">
                 <i class="fas fa-plane"></i>
             </div>
-            <h3 class="service-title">Flight Management</h3>
+            <h3 class="service-title">@Localizer["Flight Management"]</h3>
             <p class="service-description">
-                Manage your bookings, check flight status, and make changes effortlessly.
+                @Localizer["Manage your bookings, check flight status, and make changes effortlessly."]
             </p>
         </div>
 
@@ -200,9 +199,9 @@
             <div class="service-icon">
                 <i class="fas fa-headset"></i>
             </div>
-            <h3 class="service-title">24/7 Support</h3>
+            <h3 class="service-title">@Localizer["24/7 Support"]</h3>
             <p class="service-description">
-                Our dedicated team is always here to assist you, anytime, anywhere.
+                @Localizer["Our dedicated team is always here to assist you, anytime, anywhere."]
             </p>
         </div>
 
@@ -210,9 +209,9 @@
             <div class="service-icon">
                 <i class="fas fa-shield-alt"></i>
             </div>
-            <h3 class="service-title">Secure Payments</h3>
+            <h3 class="service-title">@Localizer["Secure Payments"]</h3>
             <p class="service-description">
-                Your transactions are protected with industry-leading security measures.
+                @Localizer["Your transactions are protected with industry-leading security measures."]
             </p>
         </div>
     </div>
@@ -220,8 +219,8 @@
 
 <!-- TESTIMONIALS SECTION -->
 <section class="testimonials-section">
-    <h2 class="section-title">What Our Customers Say</h2>
-    <p class="section-subtitle">Real experiences from real travelers</p>
+    <h2 class="section-title">@Localizer["What Our Customers Say"]</h2>
+    <p class="section-subtitle">@Localizer["Real experiences from real travelers"]</p>
 
     <div class="testimonials-container">
         <div class="testimonial-card">
@@ -233,14 +232,13 @@
                 <i class="fas fa-star"></i>
             </div>
             <p class="testimonial-text">
-                "AMS Airlines made my trip to Paris absolutely seamless. The booking process was straightforward,
-                and the customer service was exceptional. Highly recommended!"
+                @Localizer["AMS Airlines made my trip to Paris absolutely seamless. The booking process was straightforward, and the customer service was exceptional. Highly recommended!"]
             </p>
             <div class="testimonial-author">
                 <div class="author-avatar">SM</div>
                 <div class="author-info">
                     <h4>Sarah Mitchell</h4>
-                    <p>Business Traveler</p>
+                    <p>@Localizer["Business Traveler"]</p>
                 </div>
             </div>
         </div>
@@ -266,7 +264,7 @@
         position: fixed;
         top: 20px;
         right: 20px;
-        background-color: rgba(0, 0, 0, 0.85); 
+        background-color: rgba(0, 0, 0, 0.85);
         color: #fff;
         padding: 15px 25px;
         border-radius: 8px;
@@ -278,22 +276,21 @@
         transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
-        .toast-message.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
+    .toast-message.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
 </style>
 
 <script>
-window.addEventListener('DOMContentLoaded', () => {
-    const toast = document.getElementById('bookingToast');
-    if(toast){
-        toast.classList.add('show');
-        setTimeout(() => {
-            toast.classList.remove('show');
-        }, 4000); 
-    }
-});
+    window.addEventListener('DOMContentLoaded', () => {
+        const toast = document.getElementById('bookingToast');
+        if (toast) {
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+    });
 </script>
 

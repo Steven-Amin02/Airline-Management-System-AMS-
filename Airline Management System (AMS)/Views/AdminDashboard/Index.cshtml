@@ -34,19 +34,19 @@
             <div class="container">
                 <a href="#" class="dashboard-brand">
                     <i class="fas fa-tachometer-alt"></i>
-                    <span>Admin Dashboard</span>
+                    <span>@Localizer["Admin Dashboard"]</span>
                 </a>
                 <div class="dashboard-nav-links">
                     <span class="nav-link-btn">
                         <i class="fas fa-user-circle"></i> @User.Identity.Name
                     </span>
                     <a asp-controller="Home" asp-action="Index" class="nav-link-btn btn-home">
-                        <i class="fas fa-home"></i> Back to Site
+                        <i class="fas fa-home"></i> @Localizer["Back to Site"]
                     </a>
                     <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
                         <button type="submit" class="nav-link-btn"
                             style="background: none; border: none; cursor: pointer;">
-                            <i class="fas fa-sign-out-alt"></i> Logout
+                            <i class="fas fa-sign-out-alt"></i> @Localizer["Logout"]
                         </button>
                     </form>
                 </div>
@@ -59,14 +59,13 @@
             <div class="dashboard-header fade-in-up">
                 <h1 class="dashboard-title">
                     <i class="fas fa-chart-line"></i>
-                    Dashboard Overview
+                    @Localizer["Dashboard Overview"]
                 </h1>
-                <p class="dashboard-subtitle">Welcome back, @User.Identity.Name! Here's what's happening with your
-                    airline today.</p>
+                <p class="dashboard-subtitle">@Localizer["Welcome back"], @User.Identity.Name! @Localizer["Here's what's happening with your airline today."]</p>
                 <div class="dashboard-breadcrumb">
-                    <a asp-controller="Home" asp-action="Index">Home</a>
+                    <a asp-controller="Home" asp-action="Index">@Localizer["Home"]</a>
                     <i class="fas fa-chevron-right"></i>
-                    <span>Admin Dashboard</span>
+                    <span>@Localizer["Admin Dashboard"]</span>
                 </div>
             </div>
 
@@ -77,7 +76,7 @@
                     <div class="stat-card-content">
                         <div class="stat-info">
                             <div class="stat-number">@ViewBag.NumberOfUsers</div>
-                            <div class="stat-label">Total Users</div>
+                            <div class="stat-label">@Localizer["Total Users"]</div>
                         </div>
                         <div class="stat-icon">
                             <i class="fas fa-users"></i>
@@ -90,7 +89,7 @@
                     <div class="stat-card-content">
                         <div class="stat-info">
                             <div class="stat-number">@ViewBag.NumberOfAvailableFlights</div>
-                            <div class="stat-label">Available Flights</div>
+                            <div class="stat-label">@Localizer["Available Flights"]</div>
                         </div>
                         <div class="stat-icon">
                             <i class="fas fa-plane-departure"></i>
@@ -103,7 +102,7 @@
                     <div class="stat-card-content">
                         <div class="stat-info">
                             <div class="stat-number">@ViewBag.TotalBookings</div>
-                            <div class="stat-label">Total Bookings</div>
+                            <div class="stat-label">@Localizer["Total Bookings"]</div>
                         </div>
                         <div class="stat-icon">
                             <i class="fas fa-ticket-alt"></i>
@@ -116,7 +115,7 @@
                     <div class="stat-card-content">
                         <div class="stat-info">
                             <div class="stat-number">@ViewBag.TotalPassengers</div>
-                            <div class="stat-label">Total Passengers</div>
+                            <div class="stat-label">@Localizer["Total Passengers"]</div>
                         </div>
                         <div class="stat-icon">
                             <i class="fas fa-user-friends"></i>
@@ -129,7 +128,7 @@
                     <div class="stat-card-content">
                         <div class="stat-info">
                             <div class="stat-number">$@ViewBag.TotalRevenue.ToString("N0")</div>
-                            <div class="stat-label">Total Revenue</div>
+                            <div class="stat-label">@Localizer["Total Revenue"]</div>
                         </div>
                         <div class="stat-icon">
                             <i class="fas fa-dollar-sign"></i>
@@ -142,7 +141,7 @@
                     <div class="stat-card-content">
                         <div class="stat-info">
                             <div class="stat-number">@ViewBag.PendingFeedback</div>
-                            <div class="stat-label">Customer Feedback</div>
+                            <div class="stat-label">@Localizer["Customer Feedback"]</div>
                         </div>
                         <div class="stat-icon">
                             <i class="fas fa-comments"></i>
@@ -158,12 +157,12 @@
                         <div class="overview-card-icon">
                             <i class="fas fa-calendar-day"></i>
                         </div>
-                        <h3 class="overview-card-title">Today's Flights</h3>
+                        <h3 class="overview-card-title">@Localizer["Today's Flights"]</h3>
                     </div>
                     <div class="overview-card-content">
-                        <p><strong>@ViewBag.TodaysFlights</strong> flights scheduled for today</p>
+                        <p><strong>@ViewBag.TodaysFlights</strong> @Localizer["flights scheduled for today"]</p>
                         <p class="mt-1" style="font-size: 0.85rem; color: var(--text-medium);">
-                            Monitor and manage today's flight operations
+                            @Localizer["Monitor and manage today's flight operations"]
                         </p>
                     </div>
                 </div>
@@ -173,12 +172,12 @@
                         <div class="overview-card-icon">
                             <i class="fas fa-plane-arrival"></i>
                         </div>
-                        <h3 class="overview-card-title">Completed Flights</h3>
+                        <h3 class="overview-card-title">@Localizer["Completed Flights"]</h3>
                     </div>
                     <div class="overview-card-content">
-                        <p><strong>@ViewBag.NumberOfCompletedFlights</strong> flights completed</p>
+                        <p><strong>@ViewBag.NumberOfCompletedFlights</strong> @Localizer["flights completed"]</p>
                         <p class="mt-1" style="font-size: 0.85rem; color: var(--text-medium);">
-                            Total number of successfully completed flights
+                            @Localizer["Total number of successfully completed flights"]
                         </p>
                     </div>
                 </div>
@@ -187,40 +186,40 @@
             <!-- Quick Actions Section -->
             <div class="quick-actions-section">
                 <div class="section-header">
-                    <h2 class="section-title">Quick Actions</h2>
-                    <p class="section-description">Access key management tools and features</p>
+                    <h2 class="section-title">@Localizer["Quick Actions"]</h2>
+                    <p class="section-description">@Localizer["Access key management tools and features"]</p>
                 </div>
                 <div class="quick-actions-grid">
                     <a asp-controller="Flight" asp-action="Index" class="action-card">
                         <div class="action-icon">
                             <i class="fas fa-plane"></i>
                         </div>
-                        <h3 class="action-title">Flight Management</h3>
-                        <p class="action-description">Create, edit, and manage flight schedules and availability</p>
+                        <h3 class="action-title">@Localizer["Flight Management"]</h3>
+                        <p class="action-description">@Localizer["Create, edit, and manage flight schedules and availability"]</p>
                     </a>
 
                     <a asp-controller="Passenger" asp-action="Index" class="action-card">
                         <div class="action-icon">
                             <i class="fas fa-id-card"></i>
                         </div>
-                        <h3 class="action-title">Passenger Management</h3>
-                        <p class="action-description">View and manage passenger information and profiles</p>
+                        <h3 class="action-title">@Localizer["Passenger Management"]</h3>
+                        <p class="action-description">@Localizer["View and manage passenger information and profiles"]</p>
                     </a>
 
                     <a asp-controller="Booking" asp-action="Index" class="action-card">
                         <div class="action-icon">
                             <i class="fas fa-calendar-check"></i>
                         </div>
-                        <h3 class="action-title">Booking Management</h3>
-                        <p class="action-description">Monitor and manage all flight bookings and reservations</p>
+                        <h3 class="action-title">@Localizer["Booking Management"]</h3>
+                        <p class="action-description">@Localizer["Monitor and manage all flight bookings and reservations"]</p>
                     </a>
 
                     <a asp-controller="Feedback" asp-action="Index" class="action-card">
                         <div class="action-icon">
                             <i class="fas fa-star"></i>
                         </div>
-                        <h3 class="action-title">Feedback Management</h3>
-                        <p class="action-description">Review customer feedback and ratings</p>
+                        <h3 class="action-title">@Localizer["Feedback Management"]</h3>
+                        <p class="action-description">@Localizer["Review customer feedback and ratings"]</p>
                     </a>
                 </div>
             </div>
@@ -228,8 +227,8 @@
             <!-- Recent Activity Section -->
             <div class="recent-activity-section slide-in-right">
                 <div class="section-header">
-                    <h2 class="section-title">Recent Bookings</h2>
-                    <p class="section-description">Latest booking activity in your system</p>
+                    <h2 class="section-title">@Localizer["Recent Bookings"]</h2>
+                    <p class="section-description">@Localizer["Latest booking activity in your system"]</p>
                 </div>
 
                 @if (recentBookings.Any())
@@ -240,24 +239,24 @@
                             <li class="activity-item">
                                 <div class="activity-info">
                                     <div class="activity-title">
-                                        @((booking.Passenger?.FullName) ?? "Unknown Passenger")
+                                        @(string.IsNullOrEmpty(booking.Passenger?.FullName) ? Localizer["Unknown Passenger"].Value : booking.Passenger.FullName)
                                     </div>
                                     <div class="activity-details">
                                         <span class="activity-detail-item">
                                             <i class="fas fa-plane"></i>
                                             @if (booking.Flight != null)
                                             {
-                                                <span>@booking.Flight.FlightNumber - @booking.Flight.Origin to
+                                                <span>@booking.Flight.FlightNumber - @booking.Flight.Origin @Localizer["to"]
                                                     @booking.Flight.Destination</span>
                                             }
                                             else
                                             {
-                                                <span>Flight information unavailable</span>
+                                                <span>@Localizer["Flight information unavailable"]</span>
                                             }
                                         </span>
                                         <span class="activity-detail-item">
                                             <i class="fas fa-chair"></i>
-                                            <span>Seat @booking.SeatNumber</span>
+                                            <span>@Localizer["Seat"] @booking.SeatNumber</span>
                                         </span>
                                         <span class="activity-detail-item">
                                             <i class="fas fa-dollar-sign"></i>
@@ -282,7 +281,7 @@
                 {
                     <div class="empty-state">
                         <i class="fas fa-inbox"></i>
-                        <p>No recent bookings to display</p>
+                        <p>@Localizer["No recent bookings to display"]</p>
                     </div>
                 }
             </div>

@@ -2,10 +2,10 @@
 {
     public class ResetPasswordViewModel
     {
-        public string UserId { get; set; }
-        public string VerificationCode { get; set; }
-        public string NewPassword { get; set; }
-        public string ConfirmPassword { get; set; }
+        public string UserId { get; set; } = string.Empty;
+        public string VerificationCode { get; set; } = string.Empty;
+        public string NewPassword { get; set; } = string.Empty;
+        public string ConfirmPassword { get; set; } = string.Empty;
     }
 
 }

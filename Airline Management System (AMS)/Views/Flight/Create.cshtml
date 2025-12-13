@@ -76,7 +76,7 @@
         <div class="col-md-10">
             <div class="card shadow border-0 rounded-3">
                 <div class="card-header card-header-airline py-3">
-                    <h4 class="mb-0 fw-bold"><i class="fas fa-plane-departure me-2"></i>Create New Flight</h4>
+                    <h4 class="mb-0 fw-bold"><i class="fas fa-plane-departure me-2"></i>@Localizer["Create New Flight"]</h4>
                 </div>
                 <div class="card-body p-4">
                     <form asp-action="Create" method="post">
@@ -84,12 +84,12 @@
 
                         <!-- Basic Flight Information -->
                         <div class="alert alert-info">
-                            <strong>Flight Information</strong>
+                            <strong>@Localizer["Flight Information"]</strong>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label asp-for="FlightNumber" class="form-label fw-bold">Flight Number</label>
+                                <label asp-for="FlightNumber" class="form-label fw-bold">@Localizer["Flight Number"]</label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-light"><i class="fas fa-plane"></i></span>
                                     <input asp-for="FlightNumber" class="form-control" placeholder="e.g., AA123" />
@@ -98,7 +98,7 @@
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label asp-for="AircraftType" class="form-label fw-bold">Aircraft Type</label>
+                                <label asp-for="AircraftType" class="form-label fw-bold">@Localizer["Aircraft Type"]</label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-light"><i class="fas fa-shuttle-space"></i></span>
                                     <input asp-for="AircraftType" class="form-control" placeholder="e.g., Boeing 747" />
@@ -109,7 +109,7 @@
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label asp-for="Origin" class="form-label fw-bold">Origin</label>
+                                <label asp-for="Origin" class="form-label fw-bold">@Localizer["Origin"]</label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-light"><i class="fas fa-map-pin"></i></span>
                                     <input asp-for="Origin" class="form-control" placeholder="e.g., Cairo (CAI)" />
@@ -118,7 +118,7 @@
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label asp-for="Destination" class="form-label fw-bold">Destination</label>
+                                <label asp-for="Destination" class="form-label fw-bold">@Localizer["Destination"]</label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-light"><i class="fas fa-map-pin"></i></span>
                                     <input asp-for="Destination" class="form-control" placeholder="e.g., London (LHR)" />
@@ -129,7 +129,7 @@
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label asp-for="DepartureTime" class="form-label fw-bold">Departure Time</label>
+                                <label asp-for="DepartureTime" class="form-label fw-bold">@Localizer["Departure Time"]</label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-light"><i class="fas fa-clock"></i></span>
                                     <input asp-for="DepartureTime" type="datetime-local" class="form-control" />
@@ -138,7 +138,7 @@
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label asp-for="ArrivalTime" class="form-label fw-bold">Arrival Time</label>
+                                <label asp-for="ArrivalTime" class="form-label fw-bold">@Localizer["Arrival Time"]</label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-light"><i class="fas fa-clock"></i></span>
                                     <input asp-for="ArrivalTime" type="datetime-local" class="form-control" />
@@ -149,22 +149,22 @@
 
                         <!-- Seat Class Configuration -->
                         <div class="alert alert-info mt-4">
-                            <strong>Seat Configuration by Class</strong>
+                            <strong>@Localizer["Seat Configuration by Class"]</strong>
                         </div>
 
                         <!-- Economy Class -->
                         <div class="class-config-section economy-header">
                             <div class="class-config-header">
-                                <i class="fas fa-chair me-2" style="color: #28a745;"></i>Economy Class
+                                <i class="fas fa-chair me-2" style="color: #28a745;"></i>@Localizer["Economy Class"]
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label asp-for="EconomySeats" class="form-label fw-bold">Number of Seats</label>
+                                    <label asp-for="EconomySeats" class="form-label fw-bold">@Localizer["Number of Seats"]</label>
                                     <input asp-for="EconomySeats" type="number" class="form-control seat-input" placeholder="e.g., 100" min="0" />
                                     <span asp-validation-for="EconomySeats" class="text-danger small"></span>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label asp-for="EconomyPrice" class="form-label fw-bold">Price per Seat ($)</label>
+                                    <label asp-for="EconomyPrice" class="form-label fw-bold">@Localizer["Price per Seat"] ($)</label>
                                     <input asp-for="EconomyPrice" type="number" class="form-control price-input" placeholder="e.g., 100" min="1" />
                                     <span asp-validation-for="EconomyPrice" class="text-danger small"></span>
                                 </div>
@@ -174,16 +174,16 @@
                         <!-- Business Class -->
                         <div class="class-config-section business-header">
                             <div class="class-config-header">
-                                <i class="fas fa-chair me-2" style="color: #0077CC;"></i>Business Class
+                                <i class="fas fa-chair me-2" style="color: #0077CC;"></i>@Localizer["Business Class"]
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label asp-for="BusinessSeats" class="form-label fw-bold">Number of Seats</label>
+                                    <label asp-for="BusinessSeats" class="form-label fw-bold">@Localizer["Number of Seats"]</label>
                                     <input asp-for="BusinessSeats" type="number" class="form-control seat-input" placeholder="e.g., 100" min="0" />
                                     <span asp-validation-for="BusinessSeats" class="text-danger small"></span>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label asp-for="BusinessPrice" class="form-label fw-bold">Price per Seat ($)</label>
+                                    <label asp-for="BusinessPrice" class="form-label fw-bold">@Localizer["Price per Seat"] ($)</label>
                                     <input asp-for="BusinessPrice" type="number" class="form-control price-input" placeholder="e.g., 250" min="1" />
                                     <span asp-validation-for="BusinessPrice" class="text-danger small"></span>
                                 </div>
@@ -193,16 +193,16 @@
                         <!-- First Class -->
                         <div class="class-config-section first-class-header">
                             <div class="class-config-header">
-                                <i class="fas fa-chair me-2" style="color: #FFD700;"></i>First Class
+                                <i class="fas fa-chair me-2" style="color: #FFD700;"></i>@Localizer["First Class"]
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label asp-for="FirstClassSeats" class="form-label fw-bold">Number of Seats</label>
+                                    <label asp-for="FirstClassSeats" class="form-label fw-bold">@Localizer["Number of Seats"]</label>
                                     <input asp-for="FirstClassSeats" type="number" class="form-control seat-input" placeholder="e.g., 100" min="0" />
                                     <span asp-validation-for="FirstClassSeats" class="text-danger small"></span>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label asp-for="FirstClassPrice" class="form-label fw-bold">Price per Seat ($)</label>
+                                    <label asp-for="FirstClassPrice" class="form-label fw-bold">@Localizer["Price per Seat"] ($)</label>
                                     <input asp-for="FirstClassPrice" type="number" class="form-control price-input" placeholder="e.g., 500" min="1" />
                                     <span asp-validation-for="FirstClassPrice" class="text-danger small"></span>
                                 </div>
@@ -211,29 +211,29 @@
 
                         <!-- Total Seats Summary -->
                         <div class="alert alert-light border-2 border-warning p-3 mt-4">
-                            <strong>Total Seats Summary:</strong>
+                            <strong>@Localizer["Total Seats Summary:"]</strong>
                             <div class="row mt-2 text-center">
                                 <div class="col-md-3">
-                                    <div>Economy: <span id="economyTotal" class="badge bg-success">0</span></div>
+                                    <div>@Localizer["Economy Class"]: <span id="economyTotal" class="badge bg-success">0</span></div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div>Business: <span id="businessTotal" class="badge bg-primary">0</span></div>
+                                    <div>@Localizer["Business Class"]: <span id="businessTotal" class="badge bg-primary">0</span></div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div>First Class: <span id="firstClassTotal" class="badge bg-warning text-dark">0</span></div>
+                                    <div>@Localizer["First Class"]: <span id="firstClassTotal" class="badge bg-warning text-dark">0</span></div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="total-seats-display">Grand Total: <span id="grandTotal">0</span></div>
+                                    <div class="total-seats-display">@Localizer["Grand Total:"] <span id="grandTotal">0</span></div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="d-flex justify-content-between mt-4">
                             <a asp-action="Index" class="btn btn-outline-secondary">
-                                <i class="fas fa-arrow-left me-2"></i>Back to List
+                                <i class="fas fa-arrow-left me-2"></i>@Localizer["Back to List"]
                             </a>
                             <button type="submit" class="btn btn-primary px-4 fw-bold">
-                                <i class="fas fa-save me-2"></i>Create Flight
+                                <i class="fas fa-save me-2"></i>@Localizer["Create Flight"]
                             </button>
                         </div>
                     </form>

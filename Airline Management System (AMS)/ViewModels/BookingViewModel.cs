@@ -6,19 +6,19 @@ public class BookingViewModel
     public int FlightId { get; set; }
     public int PassengerId { get; set; }
 
-    public string FlightNumber { get; set; }
-    public string Origin { get; set; }
-    public string Destination { get; set; }
+    public string FlightNumber { get; set; } = string.Empty;
+    public string Origin { get; set; } = string.Empty;
+    public string Destination { get; set; } = string.Empty;
     public DateTime DepartureTime { get; set; }
     public decimal TicketPrice { get; set; }
 
-    public List<string> AvailableSeats { get; set; }
+    public List<string> AvailableSeats { get; set; } = new List<string>();
 
     [Required]
     [Display(Name = "Seat Number")]
-    public string SeatNumber { get; set; }
+    public string SeatNumber { get; set; } = string.Empty;
     [Required]
-    public Seat seat { get; set; }
+    public Seat seat { get; set; } = null!;
     [Required]
     public int? SelectedSeatId { get; set; }
 }

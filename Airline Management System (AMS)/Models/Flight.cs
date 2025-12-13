@@ -9,13 +9,13 @@ namespace Airline_Management_System__AMS_.Models
 
         [Required]
         [Display(Name = "Flight Number")]
-        public string FlightNumber { get; set; }
+        public string FlightNumber { get; set; } = string.Empty;
 
         [Required]
-        public string Origin { get; set; }
+        public string Origin { get; set; } = string.Empty;
 
         [Required]
-        public string Destination { get; set; }
+        public string Destination { get; set; } = string.Empty;
 
         [Required]
         [Display(Name = "Departure Time")]
@@ -27,14 +27,14 @@ namespace Airline_Management_System__AMS_.Models
 
         [Required]
         [Display(Name = "Aircraft Type")]
-        public string AircraftType { get; set; }
+        public string AircraftType { get; set; } = string.Empty;
 
         [Required]
         [Display(Name = "Available Seats")]
         public int AvailableSeats { get; set; }
 
-        public ICollection<Booking> Bookings { get; set; }
-        public ICollection<Seat> Seats { get; set; }
+        public ICollection<Booking> Bookings { get; set; } = new List<Booking>();
+        public ICollection<Seat> Seats { get; set; } = new List<Seat>();
 
         public string FlightInfo => $"{FlightNumber} ({Origin} -> {Destination})";
     }

@@ -1,34 +1,34 @@
 ﻿@model BookingViewModel
 
-<h2 class="mb-4 text-center">Confirm Your Booking</h2>
+<h2 class="mb-4 text-center">@Localizer["Confirm Your Booking"]</h2>
 
 <div class="card p-4 shadow" style="max-width: 900px; margin:auto;">
     <div class="row mb-4">
         <div class="col-md-6 border-end pe-4">
-            <h4>Flight Details</h4>
-            <p><strong>Flight:</strong> @ViewBag.Flight?.FlightNumber</p>
-            <p><strong>From:</strong> @ViewBag.Flight?.Origin</p>
-            <p><strong>To:</strong> @ViewBag.Flight?.Destination</p>
-            <p><strong>Departure:</strong> @ViewBag.Flight?.DepartureTime.ToString("f")</p>
-			<p><strong>Arrival:</strong> @ViewBag.Flight?.ArrivalTime.ToString("f")</p>
+            <h4>@Localizer["Flight Details"]</h4>
+            <p><strong>@Localizer["Flight No."]:</strong> @ViewBag.Flight?.FlightNumber</p>
+            <p><strong>@Localizer["From"]:</strong> @ViewBag.Flight?.Origin</p>
+            <p><strong>@Localizer["To"]:</strong> @ViewBag.Flight?.Destination</p>
+            <p><strong>@Localizer["Departure"]:</strong> @ViewBag.Flight?.DepartureTime.ToString("f")</p>
+            <p><strong>@Localizer["Arrival"]:</strong> @ViewBag.Flight?.ArrivalTime.ToString("f")</p>
         </div>
 
         <div class="col-md-6 ps-4">
-            <h4>Passenger Details</h4>
-            <p><strong>Name:</strong> @ViewBag.Passenger?.FullName</p>
-            <p><strong>Email:</strong> @ViewBag.Passenger?.Email</p>
-            <p><strong>Phone:</strong> @ViewBag.Passenger?.PhoneNumber</p>
-            <p><strong>Passport:</strong> @ViewBag.Passenger?.PassportNumber</p>
-            <p><strong>National ID:</strong> @ViewBag.Passenger?.NationalId</p>
+            <h4>@Localizer["Passenger Details"]</h4>
+            <p><strong>@Localizer["First Name"]:</strong> @ViewBag.Passenger?.FullName</p>
+            <p><strong>@Localizer["Email Address"]:</strong> @ViewBag.Passenger?.Email</p>
+            <p><strong>@Localizer["Phone Number"]:</strong> @ViewBag.Passenger?.PhoneNumber</p>
+            <p><strong>@Localizer["Passport Number"]:</strong> @ViewBag.Passenger?.PassportNumber</p>
+            <p><strong>@Localizer["National ID"]:</strong> @ViewBag.Passenger?.NationalId</p>
         </div>
 
         @if (ViewBag.Seat != null)
         {
             <div class="col-md-6 ps-4">
-                <h4>Seat Details</h4>
-                <p><strong>Seat Number:</strong> @ViewBag.Seat?.SeatNumber</p>
-                <p><strong>Class:</strong> @ViewBag.Seat?.Class</p>
-                <p><strong>Seat Price:</strong> @ViewBag.Seat?.SeatPrice</p>
+                <h4>@Localizer["Seat Details"]</h4>
+                <p><strong>@Localizer["Seat Number"]:</strong> @ViewBag.Seat?.SeatNumber</p>
+                <p><strong>@Localizer["Class"]:</strong> @ViewBag.Seat?.Class</p>
+                <p><strong>@Localizer["Seat Price"]:</strong> @ViewBag.Seat?.SeatPrice</p>
             </div>
         }
     </div>
@@ -39,30 +39,32 @@
         <input type="hidden" name="SelectedSeatId" value="@Model.seat?.SeatId" />
 
         <div class="form-group mb-3" id="seatSelection">
-            <label>Select Seat</label><br />
+            <label>@Localizer["Select Seat"]</label><br />
             @if (!string.IsNullOrEmpty(Model.SeatNumber))
             {
-                <a id="seatButton" href="@Url.Action("SelectSeat", "Booking", new { flightId = ViewBag.Flight?.FlightId })" class="btn btn-primary">
-                    Change Seat
+                <a id="seatButton" href="@Url.Action("SelectSeat", "Booking", new { flightId = ViewBag.Flight?.FlightId })"
+                    class="btn btn-primary">
+                    @Localizer["Change Seat"]
                 </a>
-                <span class="text-muted ms-2">You have already selected a seat. Click to change it.</span>
+                <span class="text-muted ms-2">@Localizer["You have already selected a seat. Click to change it."]</span>
             }
             else
             {
-                <a id="seatButton" href="@Url.Action("SelectSeat", "Booking", new { flightId = ViewBag.Flight?.FlightId })" class="btn btn-success">
-                    Choose Seat
+                <a id="seatButton" href="@Url.Action("SelectSeat", "Booking", new { flightId = ViewBag.Flight?.FlightId })"
+                    class="btn btn-success">
+                    @Localizer["Choose Seat"]
                 </a>
-                <span class="text-muted ms-2">Click the button to select your seat visually</span>
+                <span class="text-muted ms-2">@Localizer["Click the button to select your seat visually"]</span>
             }
         </div>
 
-        <button type="submit" class="btn btn-primary w-100 mt-3" id="confirmBtn">Confirm Booking</button>
+        <button type="submit" class="btn btn-primary w-100 mt-3" id="confirmBtn">@Localizer["Confirm Booking"]</button>
     </form>
 
 </div>
 
 <script>
-    document.getElementById("confirmBtn").addEventListener("click", function(event) {
+    document.getElementById("confirmBtn").addEventListener("click", function (event) {
         var seatNumber = "@Model.SeatNumber";
         if (!seatNumber) {
             event.preventDefault();

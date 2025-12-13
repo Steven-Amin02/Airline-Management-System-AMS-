@@ -263,126 +263,125 @@
 
 <div class="dashboard-header">
     <div class="header-content">
-        <h1>✈️ User Dashboard</h1>
-        <p>Welcome back, @User.Identity.Name! Manage your flights and bookings</p>
+        <h1>✈️ @Localizer["User Dashboard"]</h1>
+        <p>@Localizer["Welcome Back"], @User.Identity.Name! @Localizer["Manage your flights and bookings"]</p>
     </div>
 </div>
 
 <div class="dashboard-container">
     <!-- Welcome Banner -->
     <div class="welcome-banner">
-        <h2>Ready for your next adventure?</h2>
-        <p>Explore destinations, book flights, and manage your travel plans all in one place.</p>
+        <h2>@Localizer["Ready for your next adventure?"]</h2>
+        <p>@Localizer["Explore destinations, book flights, and manage your travel plans all in one place."]</p>
     </div>
 
     <!-- Quick Stats -->
-    <h3 class="section-title">Your Travel Stats</h3>
+    <h3 class="section-title">@Localizer["Your Travel Stats"]</h3>
     <div class="stats-grid">
         <div class="stat-card">
             <div class="stat-number">0</div>
-            <div class="stat-label">Total Bookings</div>
+            <div class="stat-label">@Localizer["Total Bookings"]</div>
         </div>
         <div class="stat-card">
             <div class="stat-number">0</div>
-            <div class="stat-label">Upcoming Trips</div>
+            <div class="stat-label">@Localizer["Upcoming Trips"]</div>
         </div>
         <div class="stat-card">
             <div class="stat-number">0</div>
-            <div class="stat-label">Destinations Visited</div>
+            <div class="stat-label">@Localizer["Destinations Visited"]</div>
         </div>
     </div>
 
     <!-- Quick Actions -->
-    <h3 class="section-title">Quick Actions</h3>
+    <h3 class="section-title">@Localizer["Quick Actions"]</h3>
     <div class="quick-actions">
         <a href="/" class="action-btn">
             <i class="fas fa-search"></i>
-            Search Flights
+            @Localizer["Search Trips"]
         </a>
         <a asp-controller="Booking" asp-action="MyBookings" class="action-btn secondary">
             <i class="fas fa-ticket-alt"></i>
-            My Bookings
+            @Localizer["My Bookings"]
         </a>
         <a asp-controller="Account" asp-action="Profile" class="action-btn secondary">
             <i class="fas fa-user"></i>
-            Edit Profile
+            @Localizer["Edit Profile"]
         </a>
         <form asp-controller="Account" asp-action="Logout" method="post" style="margin: 0;">
             <button type="submit" class="action-btn danger">
                 <i class="fas fa-sign-out-alt"></i>
-                Logout
+                @Localizer["Logout"]
             </button>
         </form>
     </div>
 
     <!-- Main Dashboard Cards -->
-    <h3 class="section-title">Manage Your Travel</h3>
+    <h3 class="section-title">@Localizer["Manage Your Travel"]</h3>
     <div class="dashboard-grid">
         <div class="dashboard-card">
             <div class="card-icon">🎫</div>
-            <h4 class="card-title">My Bookings</h4>
-            <p class="card-description">View and manage all your flight bookings, check booking status, and download
-                tickets.</p>
+            <h4 class="card-title">@Localizer["My Bookings"]</h4>
+            <p class="card-description">@Localizer["View and manage all your flight bookings, check booking status, and download tickets."]</p>
             <a asp-controller="Booking" asp-action="MyBookings" class="card-link">
-                View Bookings <i class="fas fa-arrow-right"></i>
+                @Localizer["View Bookings"] <i class="fas fa-arrow-right"></i>
             </a>
         </div>
 
         <div class="dashboard-card">
             <div class="card-icon">✈️</div>
-            <h4 class="card-title">Browse Flights</h4>
-            <p class="card-description">Search and explore available flights to your favorite destinations worldwide.
+            <h4 class="card-title">@Localizer["Browse Flights"]</h4>
+            <p class="card-description">@Localizer["Search and explore available flights to your favorite destinations worldwide."]
             </p>
             <a asp-controller="home" asp-action="Index" class="card-link">
-                Search Flights <i class="fas fa-arrow-right"></i>
+                @Localizer["Search Trips"] <i class="fas fa-arrow-right"></i>
             </a>
         </div>
 
         <div class="dashboard-card">
             <div class="card-icon">👤</div>
-            <h4 class="card-title">My Profile</h4>
-            <p class="card-description">Update your personal information, contact details, and account preferences.</p>
+            <h4 class="card-title">@Localizer["My Profile"]</h4>
+            <p class="card-description">@Localizer["Update your personal information, contact details, and account preferences."]</p>
             <a asp-controller="Account" asp-action="Profile" class="card-link">
-                Edit Profile <i class="fas fa-arrow-right"></i>
+                @Localizer["Edit Profile"] <i class="fas fa-arrow-right"></i>
             </a>
             <a asp-controller="Account" asp-action="Profile" class="card-link">
-                Edit Profile <i class="fas fa-arrow-right"></i>
+                @Localizer["Edit Profile"] <i class="fas fa-arrow-right"></i>
             </a>
         </div>
 
         <div class="dashboard-card">
             <div class="card-icon">💬</div>
-            <h4 class="card-title">My Feedback</h4>
-            <p class="card-description">Share your travel experiences and view your past reviews.</p>
+            <h4 class="card-title">@Localizer["My Feedback"]</h4>
+            <p class="card-description">@Localizer["Share your travel experiences and view your past reviews."]</p>
             <a asp-controller="Feedback" asp-action="MyFeedback" class="card-link">
-                View Feedback <i class="fas fa-arrow-right"></i>
+                @Localizer["View Feedback"] <i class="fas fa-arrow-right"></i>
             </a>
         </div>
 
         <div class="dashboard-card">
             <div class="card-icon">🌍</div>
-            <h4 class="card-title">Destinations</h4>
-            <p class="card-description">Discover popular destinations and find the best deals for your next trip.</p>
+            <h4 class="card-title">@Localizer["Destinations"]</h4>
+            <p class="card-description">@Localizer["Discover popular destinations and find the best deals for your next trip."]</p>
             <a href="/#destinations" class="card-link">
-                Explore Destinations <i class="fas fa-arrow-right"></i>
+                @Localizer["Explore Destinations"] <i class="fas fa-arrow-right"></i>
             </a>
         </div>
 
         <div class="dashboard-card">
             <div class="card-icon">💳</div>
-            <h4 class="card-title">Payment Methods</h4>
-            <p class="card-description">Manage your saved payment methods and billing information securely.</p>
+            <h4 class="card-title">@Localizer["Payment Methods"]</h4>
+            <p class="card-description">@Localizer["Manage your saved payment methods and billing information securely."]</p>
             <a href="#" class="card-link">
-                Manage Payments <i class="fas fa-arrow-right"></i>
+                @Localizer["Manage Payments"] <i class="fas fa-arrow-right"></i>
             </a>
         </div>
 
         <div class="dashboard-card">
             <div class="card-icon">📞</div>
-            <h4 class="card-title">Support</h4>
-            <p class="card-description">Need help? Contact our 24/7 customer support team for assistance.</p>
+            <h4 class="card-title">@Localizer["Support"]</h4>
+            <p class="card-description">@Localizer["Need help? Contact our 24/7 customer support team for assistance."]</p>
             <a href="/home/Privacy" class="card-link">
-                Get Help <i class="fas fa-arrow-right"></i>
+                @Localizer["Get Help"] <i class="fas fa-arrow-right"></i>
             </a>
         </div>
     </div>

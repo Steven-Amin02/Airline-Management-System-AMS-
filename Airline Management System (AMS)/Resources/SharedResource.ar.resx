@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Welcome" xml:space="preserve">
+    <value>أهلاً بك</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
+  <data name="Destinations" xml:space="preserve">
+    <value>الوجهات</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>الخدمات</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>إنشاء حساب</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>لوحة التحكم</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>الملاحظات</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>تسجيل الخروج</value>
+  </data>
+  <data name="Search Flights" xml:space="preserve">
+    <value>بحث عن رحلات</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>من</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>إلى</value>
+  </data>
+  <data name="Departure Date" xml:space="preserve">
+    <value>تاريخ المغادرة</value>
+  </data>
+  <data name="Passengers" xml:space="preserve">
+    <value>المسافرين</value>
+  </data>
+  <data name="Explore World" xml:space="preserve">
+    <value>استكشف العالم معنا</value>
+  </data>
+  <data name="Book Flight" xml:space="preserve">
+    <value>احجز رحلتك الآن واستمتع بتجربة سفر فاخرة</value>
+  </data>
+  <data name="Privacy Policy" xml:space="preserve">
+    <value>سياسة الخصوصية</value>
+  </data>
+  <data name="All Rights Reserved" xml:space="preserve">
+    <value>جميع الحقوق محفوظة</value>
+  </data>
+  <data name="Email Address" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="Remember Me" xml:space="preserve">
+    <value>تذكرني</value>
+  </data>
+  <data name="Forgot Password" xml:space="preserve">
+    <value>نسيت كلمة المرور؟</value>
+  </data>
+  <data name="Don't have an account?" xml:space="preserve">
+    <value>ليس لديك حساب؟</value>
+  </data>
+  <data name="Create new account" xml:space="preserve">
+    <value>إنشاء حساب جديد</value>
+  </data>
+  <data name="First Name" xml:space="preserve">
+    <value>الاسم الأول</value>
+  </data>
+  <data name="Last Name" xml:space="preserve">
+    <value>الاسم الأخير</value>
+  </data>
+  <data name="Confirm Password" xml:space="preserve">
+    <value>تأكيد كلمة المرور</value>
+  </data>
+  <data name="Already have an account?" xml:space="preserve">
+    <value>لديك حساب بالفعل؟</value>
+  </data>
+  <data name="User Dashboard" xml:space="preserve">
+    <value>لوحة تحكم المستخدم</value>
+  </data>
+  <data name="My Profile" xml:space="preserve">
+    <value>ملفي الشخصي</value>
+  </data>
+  <data name="Member since" xml:space="preserve">
+    <value>عضو منذ</value>
+  </data>
+  <data name="Account Information" xml:space="preserve">
+    <value>معلومات الحساب</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>تحديث</value>
+  </data>
+  <data name="Recent Activity" xml:space="preserve">
+    <value>النشاط الأخير</value>
+  </data>
+  <data name="Submit Feedback" xml:space="preserve">
+    <value>إرسال ملاحظات</value>
+  </data>
+  <data name="We value your feedback" xml:space="preserve">
+    <value>نحن نقدر ملاحظاتك لتحسين خدماتنا</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>الموضوع</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>الرسالة</value>
+  </data>
+  <data name="Rating" xml:space="preserve">
+    <value>التقييم</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>إرسال</value>
+  </data>
+  <data name="My Feedback" xml:space="preserve">
+    <value>ملاحظاتي</value>
+  </data>
+  <data name="Track your submitted feedback" xml:space="preserve">
+    <value>تتبع الملاحظات التي قدمتها</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>قيد الانتظار</value>
+  </data>
+  <data name="Reviewed" xml:space="preserve">
+    <value>تمت المراجعة</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>مغلق</value>
+  </data>
+  <data name="Admin Response" xml:space="preserve">
+    <value>رد المسؤول</value>
+  </data>
+  <data name="Confirm Your Booking" xml:space="preserve">
+     <value>تأكيد حجزك</value>
+  </data>
+  <data name="Flight Details" xml:space="preserve">
+     <value>تفاصيل الرحلة</value>
+  </data>
+  <data name="Passenger Details" xml:space="preserve">
+     <value>تفاصيل الراكب</value>
+  </data>
+  <data name="Flight No." xml:space="preserve">
+     <value>رقم الرحلة</value>
+  </data>
+  <data name="Departure" xml:space="preserve">
+     <value>المغادرة</value>
+  </data>
+  <data name="Arrival" xml:space="preserve">
+     <value>الوصول</value>
+  </data>
+  <data name="Phone Number" xml:space="preserve">
+     <value>رقم الهاتف</value>
+  </data>
+  <data name="Passport Number" xml:space="preserve">
+     <value>رقم الجواز</value>
+  </data>
+  <data name="National ID" xml:space="preserve">
+     <value>الرقم القومي</value>
+  </data>
+  <data name="Seat Details" xml:space="preserve">
+     <value>تفاصيل المقعد</value>
+  </data>
+  <data name="Seat Number" xml:space="preserve">
+     <value>رقم المقعد</value>
+  </data>
+  <data name="Class" xml:space="preserve">
+     <value>الدرجة</value>
+  </data>
+  <data name="Seat Price" xml:space="preserve">
+     <value>سعر المقعد</value>
+  </data>
+  <data name="Select Seat" xml:space="preserve">
+     <value>اختر المقعد</value>
+  </data>
+  <data name="Change Seat" xml:space="preserve">
+     <value>تغيير المقعد</value>
+  </data>
+  <data name="Choose Seat" xml:space="preserve">
+     <value>اختيار مقعد</value>
+  </data>
+  <data name="Confirm Booking" xml:space="preserve">
+     <value>تأكيد الحجز</value>
+  </data>
+  <data name="Select Seat for Flight" xml:space="preserve">
+     <value>اختر مقعد لرحلة</value>
+  </data>
+  <data name="Key" xml:space="preserve">
+     <value>مفتاح الخريطة</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+     <value>متاح</value>
+  </data>
+  <data name="Booked" xml:space="preserve">
+     <value>محجوز</value>
+  </data>
+  <data name="Business Class" xml:space="preserve">
+     <value>درجة رجال أعمال</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+     <value>محدد</value>
+  </data>
+  <data name="Confirm Seat Selection" xml:space="preserve">
+     <value>تأكيد اختيار المقعد</value>
+  </data>
+  <data name="Please select an available seat from the map." xml:space="preserve">
+     <value>الرجاء اختيار مقعد متاح من الخريطة.</value>
+  </data>
+  <data name="E-TICKET" xml:space="preserve">
+     <value>تذكرة إلكترونية</value>
+  </data>
+  <data name="Departure Time" xml:space="preserve">
+     <value>وقت المغادرة</value>
+  </data>
+  <data name="Arrival Time" xml:space="preserve">
+     <value>وقت الوصول</value>
+  </data>
+  <data name="Passenger Information" xml:space="preserve">
+     <value>معلومات الراكب</value>
+  </data>
+  <data name="Seat Assignment" xml:space="preserve">
+     <value>تخصيص المقعد</value>
+  </data>
+  <data name="Booking Details" xml:space="preserve">
+     <value>تفاصيل الحجز</value>
+  </data>
+  <data name="Booking Reference" xml:space="preserve">
+     <value>رقم الحجز</value>
+  </data>
+  <data name="Booking Date" xml:space="preserve">
+     <value>تاريخ الحجز</value>
+  </data>
+  <data name="Ticket Price" xml:space="preserve">
+     <value>سعر التذكرة</value>
+  </data>
+  <data name="Important Instructions" xml:space="preserve">
+     <value>تعليمات مهمة</value>
+  </data>
+  <data name="Print Ticket" xml:space="preserve">
+     <value>طباعة التذكرة</value>
+  </data>
+  <data name="Cancel Booking" xml:space="preserve">
+     <value>إلغاء الحجز</value>
+  </data>
+  <data name="My Bookings" xml:space="preserve">
+     <value>حجوزاتي</value>
+  </data>
+  <data name="Total Bookings" xml:space="preserve">
+     <value>إجمالي الحجوزات</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+     <value>نشطة</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+     <value>ملغاة</value>
+  </data>
+  <data name="Search by flight number..." xml:space="preserve">
+     <value>بحث برقم الرحلة...</value>
+  </data>
+  <data name="No Bookings Yet" xml:space="preserve">
+     <value>لا توجد حجوزات بعد</value>
+  </data>
+  <data name="Start your journey by booking a flight!" xml:space="preserve">
+     <value>ابدأ رحلتك بحجز رحلة الآن!</value>
+  </data>
+  <data name="Search Trips" xml:space="preserve">
+     <value>ابحث عن رحلات</value>
+  </data>
+  <data name="View Ticket" xml:space="preserve">
+     <value>عرض التذكرة</value>
+  </data>
+  <data name="Print All" xml:space="preserve">
+     <value>طباعة الكل</value>
+  </data>
+  <data name="Book New Flight" xml:space="preserve">
+     <value>حجز رحلة جديدة</value>
+  </data>
+  <data name="Admin Dashboard" xml:space="preserve">
+    <value>لوحة تحكم المسؤول</value>
+  </data>
+  <data name="Dashboard Overview" xml:space="preserve">
+    <value>نظرة عامة</value>
+  </data>
+  <data name="Back to Site" xml:space="preserve">
+    <value>العودة للموقع</value>
+  </data>
+  <data name="Total Users" xml:space="preserve">
+    <value>إجمالي المستخدمين</value>
+  </data>
+  <data name="Available Flights" xml:space="preserve">
+    <value>الرحلات المتاحة</value>
+  </data>
+  <data name="Total Revenue" xml:space="preserve">
+    <value>إجمالي الإيرادات</value>
+  </data>
+  <data name="Customer Feedback" xml:space="preserve">
+    <value>آراء العملاء</value>
+  </data>
+  <data name="Total Passengers" xml:space="preserve">
+    <value>إجمالي الركاب</value>
+  </data>
+  <data name="Today's Flights" xml:space="preserve">
+    <value>رحلات اليوم</value>
+  </data>
+  <data name="Completed Flights" xml:space="preserve">
+    <value>رحلات مكتملة</value>
+  </data>
+  <data name="Quick Actions" xml:space="preserve">
+    <value>إجراءات سريعة</value>
+  </data>
+  <data name="Flight Management" xml:space="preserve">
+    <value>إدارة الرحلات</value>
+  </data>
+  <data name="Passenger Management" xml:space="preserve">
+    <value>إدارة الركاب</value>
+  </data>
+  <data name="Booking Management" xml:space="preserve">
+    <value>إدارة الحجوزات</value>
+  </data>
+  <data name="Feedback Management" xml:space="preserve">
+    <value>إدارة الملاحظات</value>
+  </data>
+  <data name="Recent Bookings" xml:space="preserve">
+    <value>أحدث الحجوزات</value>
+  </data>
+  <data name="Flight List" xml:space="preserve">
+    <value>قائمة الرحلات</value>
+  </data>
+  <data name="Add New Flight" xml:space="preserve">
+    <value>إضافة رحلة جديدة</value>
+  </data>
+  <data name="Flight Number" xml:space="preserve">
+    <value>رقم الرحلة</value>
+  </data>
+  <data name="Aircraft Type" xml:space="preserve">
+    <value>نوع الطائرة</value>
+  </data>
+  <data name="Origin" xml:space="preserve">
+    <value>من</value>
+  </data>
+  <data name="Destination" xml:space="preserve">
+    <value>إلى</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>الإجراءات</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>تفاصيل</value>
+  </data>
+  <data name="Passenger List" xml:space="preserve">
+    <value>قائمة الركاب</value>
+  </data>
+  <data name="Add New Passenger" xml:space="preserve">
+    <value>إضافة راكب جديد</value>
+  </data>
+  <data name="Full Name" xml:space="preserve">
+    <value>الاسم الكامل</value>
+  </data>
+  <data name="Contact Info" xml:space="preserve">
+    <value>معلومات الاتصال</value>
+  </data>
+  <data name="Archive" xml:space="preserve">
+    <value>أرشفة</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>استعادة</value>
+  </data>
+  <data name="Create Flight" xml:space="preserve">
+    <value>إنشاء رحلة</value>
+  </data>
+  <data name="Economy Class" xml:space="preserve">
+    <value>الدرجة السياحية</value>
+  </data>
+  <data name="Number of Seats" xml:space="preserve">
+    <value>عدد المقاعد</value>
+  </data>
+  <data name="Price per Seat" xml:space="preserve">
+    <value>سعر المقعد</value>
+  </data>
+  <data name="First Class" xml:space="preserve">
+    <value>الدرجة الأولى</value>
+  </data>
+  <data name="Create Passenger" xml:space="preserve">
+    <value>إنشاء راكب</value>
+  </data>
+  <data name="Account Role" xml:space="preserve">
+    <value>نوع الحساب</value>
+  </data>
+  <data name="Welcome back" xml:space="preserve">
+    <value>مرحباً بعودتك</value>
+  </data>
+  <data name="Passport No." xml:space="preserve">
+     <value>رقم الجواز</value>
+  </data>
+  <data name="Passport" xml:space="preserve">
+     <value>جواز السفر</value>
+  </data>
+  <data name="Wait" xml:space="preserve">
+     <value>انتظر</value>
+  </data>
+  <data name="Checked In" xml:space="preserve">
+     <value>تم تسجيل الوصول</value>
+  </data>
+  <data name="Booking List" xml:space="preserve">
+     <value>قائمة الحجوزات</value>
+  </data>
+  <data name="Passport Number" xml:space="preserve">
+     <value>رقم الجواز</value>
+  </data>
+  <data name="Create, edit, and manage flight schedules and availability" xml:space="preserve">
+    <value>إنشاء وتعديل وإدارة جداول الرحلات وتوافرها</value>
+  </data>
+  <data name="View and manage passenger information and profiles" xml:space="preserve">
+     <value>عرض وإدارة معلومات ومقاطع الركاب</value>
+  </data>
+  <data name="Monitor and manage all flight bookings and reservations" xml:space="preserve">
+     <value>مراقبة وإدارة جميع الحجوزات</value>
+  </data>
+  <data name="Review customer feedback and ratings" xml:space="preserve">
+     <value>مراجعة آراء العملاء وتقييماتهم</value>
+  </data>
+  <data name="Access key management tools and features" xml:space="preserve">
+     <value>الوصول إلى أدوات وميزات الإدارة الرئيسية</value>
+  </data>
+</root>

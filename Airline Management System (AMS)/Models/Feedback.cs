@@ -9,10 +9,10 @@ namespace Airline_Management_System__AMS_.Models
         public int FeedbackId { get; set; }
 
         [Required]
-        public string UserId { get; set; }
+        public string UserId { get; set; } = string.Empty;
 
         [ForeignKey("UserId")]
-        public ApplicationUser User { get; set; }
+        public ApplicationUser User { get; set; } = null!;
 
         [Required]
         [Range(1, 5)]
@@ -20,7 +20,7 @@ namespace Airline_Management_System__AMS_.Models
 
         [Required]
         [StringLength(1000)]
-        public string Comment { get; set; }
+        public string Comment { get; set; } = string.Empty;
 
         [Display(Name = "Created At")]
         public DateTime CreatedAt { get; set; } = DateTime.Now;

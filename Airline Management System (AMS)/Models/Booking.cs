@@ -23,12 +23,12 @@ namespace Airline_Management_System__AMS_.Models
         [Required]
         [ForeignKey("Passenger")]
         public int PassengerId { get; set; }
-        public Passenger Passenger { get; set; }
+        public Passenger Passenger { get; set; } = null!;
 
         [Required]
         [StringLength(5)]
         [Display(Name = "Seat Number")]
-        public string SeatNumber { get; set; }
+        public string SeatNumber { get; set; } = string.Empty;
 
         [Display(Name = "Booking Date")]
         public DateTime BookingDate { get; set; } = DateTime.Now;

@@ -9,23 +9,23 @@
         <div class="col-md-8">
             <div class="card shadow border-0 rounded-3">
                 <div class="card-header bg-primary text-white py-3">
-                    <h4 class="mb-0"><i class="fas fa-comment-alt me-2"></i>Share Your Experience</h4>
+                    <h4 class="mb-0"><i class="fas fa-comment-alt me-2"></i>@Localizer["Share Your Experience"]</h4>
                 </div>
                 <div class="card-body p-4">
-                    <p class="text-muted mb-4">We value your opinion! Please let us know how we did on your recent flight.</p>
+                    <p class="text-muted mb-4">@Localizer["We value your opinion! Please let us know how we did on your recent flight."]</p>
 
                     <form asp-action="Submit">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                         <div class="mb-4">
-                            <label asp-for="FlightId" class="form-label fw-bold">Select Flight (Optional)</label>
+                            <label asp-for="FlightId" class="form-label fw-bold">@Localizer["Select Flight (Optional)"]</label>
                             <select asp-for="FlightId" class="form-select" asp-items="ViewBag.FlightId">
-                                <option value="">-- General Experience (No specific flight) --</option>
+                                <option value="">-- @Localizer["General Experience (No specific flight)"] --</option>
                             </select>
                         </div>
 
                         <div class="mb-4">
-                            <label class="form-label fw-bold">Rate Your Experience</label>
+                            <label class="form-label fw-bold">@Localizer["Rate Your Experience"]</label>
                             <div class="rating-stars text-center py-3 bg-light rounded-3">
                                 <div class="btn-group" role="group" aria-label="Rating">
                                     @for (int i = 1; i <= 5; i++)
@@ -41,16 +41,16 @@
                         </div>
 
                         <div class="mb-4">
-                            <label asp-for="Comment" class="form-label fw-bold">Your Comments</label>
-                            <textarea asp-for="Comment" class="form-control" rows="5" placeholder="Tell us what you liked or how we can improve..."></textarea>
+                            <label asp-for="Comment" class="form-label fw-bold">@Localizer["Your Comments"]</label>
+                            <textarea asp-for="Comment" class="form-control" rows="5" placeholder="@Localizer["Tell us what you liked or how we can improve..."]"></textarea>
                             <span asp-validation-for="Comment" class="text-danger"></span>
                         </div>
 
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-primary btn-lg">
-                                <i class="fas fa-paper-plane me-2"></i>Submit Feedback
+                                <i class="fas fa-paper-plane me-2"></i>@Localizer["Submit Feedback"]
                             </button>
-                            <a asp-action="MyFeedback" class="btn btn-link text-muted">Cancel</a>
+                            <a asp-action="MyFeedback" class="btn btn-link text-muted">@Localizer["Cancel"]</a>
                         </div>
                     </form>
                 </div>

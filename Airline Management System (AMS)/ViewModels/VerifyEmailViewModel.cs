@@ -2,8 +2,8 @@
 {
     public class VerifyEmailViewModel
     {
-        public string UserId { get; set; }
-        public string Code { get; set; }
+        public string UserId { get; set; } = string.Empty;
+        public string Code { get; set; } = string.Empty;
     }
 
 }

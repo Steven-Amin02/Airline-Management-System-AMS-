@@ -8,7 +8,7 @@
             <span>AIRLINE</span>
         </div>
         <div class="ticket-type">
-            <span>E-TICKET</span>
+            <span>@Localizer["E-TICKET"]</span>
             <div class="barcode">
                 <i class="fas fa-barcode"></i>
                 @Model.Flight.FlightNumber-@Model.Id.ToString("D6")
@@ -21,32 +21,32 @@
         <div class="route-info">
             <div class="city">
                 <span class="code">@Model.Flight.Origin</span>
-                <span class="name">Departure</span>
+                <span class="name">@Localizer["Departure"]</span>
             </div>
             <div class="plane-icon">
                 <i class="fas fa-plane"></i>
             </div>
             <div class="city">
                 <span class="code">@Model.Flight.Destination</span>
-                <span class="name">Destination</span>
+                <span class="name">@Localizer["Arrival"]</span>
             </div>
         </div>
 
         <div class="flight-details">
             <div class="detail-item">
-                <span class="label">Flight No.</span>
+                <span class="label">@Localizer["Flight No."]</span>
                 <span class="value">@Model.Flight.FlightNumber</span>
             </div>
             <div class="detail-item">
-                <span class="label">Date</span>
+                <span class="label">@Localizer["Date"]</span>
                 <span class="value">@Model.Flight.DepartureTime.ToString("ddd, MMM dd")</span>
             </div>
             <div class="detail-item">
-                <span class="label">Departure Time</span>
+                <span class="label">@Localizer["Departure Time"]</span>
                 <span class="value">@Model.Flight.DepartureTime.ToString("hh:mm tt")</span>
             </div>
             <div class="detail-item">
-                <span class="label">Arrival Time</span>
+                <span class="label">@Localizer["Arrival Time"]</span>
                 <span class="value">@Model.Flight.ArrivalTime.ToString("hh:mm tt")</span>
 
             </div>
@@ -56,26 +56,26 @@
     <!-- معلومات الراكب والمقعد -->
     <div class="passenger-seat-section">
         <div class="passenger-info">
-            <h3><i class="fas fa-user"></i> Passenger Information</h3>
+            <h3><i class="fas fa-user"></i> @Localizer["Passenger Information"]</h3>
             <div class="info-grid">
                 <div class="info-item">
-                    <span class="label">Full Name</span>
+                    <span class="label">@Localizer["Full Name"]</span>
                     <span class="value">@Model.Passenger.FullName</span>
                 </div>
                 <div class="info-item">
-                    <span class="label">Email</span>
+                    <span class="label">@Localizer["Email Address"]</span>
                     <span class="value">@Model.Passenger.Email</span>
                 </div>
                 <div class="info-item">
-                    <span class="label">Phone</span>
+                    <span class="label">@Localizer["Phone Number"]</span>
                     <span class="value">@Model.Passenger.PhoneNumber</span>
                 </div>
                 <div class="info-item">
-                    <span class="label">Passport No.</span>
+                    <span class="label">@Localizer["Passport No."]</span>
                     <span class="value">@Model.Passenger.PassportNumber</span>
                 </div>
                 <div class="info-item">
-                    <span class="label">National ID</span>
+                    <span class="label">@Localizer["National ID"]</span>
                     <span class="value">@Model.Passenger.NationalId</span>
                 </div>
             </div>
@@ -85,7 +85,7 @@
             <div class="seat-card">
                 <div class="seat-header">
                     <i class="fas fa-chair"></i>
-                    <span>Seat Assignment</span>
+                    <span>@Localizer["Seat Assignment"]</span>
                 </div>
                 <div class="seat-details">
                     <div class="seat-number">@Model.SeatNumber</div>
@@ -99,22 +99,22 @@
     <!-- معلومات الحجز -->
     <div class="booking-info-section">
         <div class="booking-card">
-            <h3><i class="fas fa-receipt"></i> Booking Details</h3>
+            <h3><i class="fas fa-receipt"></i> @Localizer["Booking Details"]</h3>
             <div class="info-grid">
                 <div class="info-item">
-                    <span class="label">Booking Reference</span>
+                    <span class="label">@Localizer["Booking Reference"]</span>
                     <span class="value">AMS-@Model.Id.ToString("D6")</span>
                 </div>
                 <div class="info-item">
-                    <span class="label">Booking Date</span>
+                    <span class="label">@Localizer["Booking Date"]</span>
                     <span class="value">@Model.BookingDate.ToString("f")</span>
                 </div>
                 <div class="info-item">
-                    <span class="label">Ticket Price</span>
+                    <span class="label">@Localizer["Ticket Price"]</span>
                     <span class="value">@Model.TicketPrice.ToString("C")</span>
                 </div>
                 <div class="info-item">
-                    <span class="label">Status</span>
+                    <span class="label">@Localizer["Status"]</span>
                     <span class="status-badge @Model.Status.ToString().ToLower()">
                         @Model.Status
                     </span>
@@ -125,29 +125,29 @@
 
     <!-- إرشادات مهمة -->
     <div class="instructions-section">
-        <h4><i class="fas fa-info-circle"></i> Important Instructions</h4>
+        <h4><i class="fas fa-info-circle"></i> @Localizer["Important Instructions"]</h4>
         <ul>
-            <li><i class="fas fa-check-circle"></i> Please arrive at the airport at least 2 hours before departure</li>
-            <li><i class="fas fa-check-circle"></i> Bring valid identification (Passport/National ID)</li>
-            <li><i class="fas fa-check-circle"></i> Online check-in opens 24 hours before departure</li>
-            <li><i class="fas fa-check-circle"></i> Baggage allowance: 23kg checked + 7kg cabin</li>
+            <li><i class="fas fa-check-circle"></i> @Localizer["Please arrive at the airport at least 2 hours before departure"]</li>
+            <li><i class="fas fa-check-circle"></i> @Localizer["Bring valid identification (Passport/National ID)"]</li>
+            <li><i class="fas fa-check-circle"></i> @Localizer["Online check-in opens 24 hours before departure"]</li>
+            <li><i class="fas fa-check-circle"></i> @Localizer["Baggage allowance: 23kg checked + 7kg cabin"]</li>
         </ul>
     </div>
 
     <!-- أزرار الإجراءات -->
     <div class="actions-section">
         <a href="/Booking/MyBookings" class="btn-back">
-            <i class="fas fa-arrow-left"></i> Back to My Bookings
+            <i class="fas fa-arrow-left"></i> @Localizer["Back to My Bookings"]
         </a>
         <button onclick="window.print()" class="btn-print">
-            <i class="fas fa-print"></i> Print Ticket
+            <i class="fas fa-print"></i> @Localizer["Print Ticket"]
         </button>
         @if (Model.Status == BookingStatus.Booked)
         {
-            <form asp-action="Cancel" asp-controller="Booking" method="post" onsubmit="return confirm('Are you sure you want to cancel this booking?');" style="display:inline;">
+            <form asp-action="Cancel" asp-controller="Booking" method="post" onsubmit="return confirm('@Localizer["Are you sure you want to cancel this booking?"]');" style="display:inline;">
                 <input type="hidden" name="id" value="@Model.Id" />
                 <button type="submit" class="btn-cancel">
-                    <i class="fas fa-times"></i> Cancel Booking
+                    <i class="fas fa-times"></i> @Localizer["Cancel Booking"]
                 </button>
             </form>
         }
@@ -155,7 +155,7 @@
 
     <!-- Footer -->
     <div class="ticket-footer">
-        <p><i class="fas fa-headset"></i> For assistance, call +1 (555) 123-4567</p>
+        <p><i class="fas fa-headset"></i> @Localizer["For assistance, call"] +1 (555) 123-4567</p>
         <p><i class="fas fa-globe"></i> www.airline-ams.com</p>
     </div>
 </div>

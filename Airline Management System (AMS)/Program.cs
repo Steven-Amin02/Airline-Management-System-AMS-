@@ -3,11 +3,37 @@ using Airline_Management_System__AMS_.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using Airline_Management_System__AMS_.Resources;
+using XLocalizer;
+using XLocalizer.Xml; // If using XML, but strict requirement is RESX. XLocalizer main package handles the abstraction.
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddXLocalizer<SharedResource>(ops =>
+    {
+        ops.ResourcesPath = "Resources";
+        ops.AutoAddKeys = false; // RESX is read-only at runtime
+        ops.AutoTranslate = false;
+    });
+
+// Configure Localization Options
+builder.Services.Configure<RequestLocalizationOptions>(ops =>
+{
+    var supportedCultures = new[]
+    {
+        new CultureInfo("en"),
+        new CultureInfo("ar")
+    };
+
+    ops.DefaultRequestCulture = new RequestCulture("en");
+    ops.SupportedCultures = supportedCultures;
+    ops.SupportedUICultures = supportedCultures;
+    ops.RequestCultureProviders.Insert(0, new CookieRequestCultureProvider()); // Prioritize cookies
+});
 
 // Database
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
@@ -55,6 +81,21 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+// Localization Middleware
+const string defaultCulture = "en";
+var supportedCultures = new[]
+{
+    new CultureInfo(defaultCulture),
+    new CultureInfo("ar")
+};
+var localizationOptions = new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture(defaultCulture),
+    SupportedCultures = supportedCultures,
+    SupportedUICultures = supportedCultures
+};
+app.UseRequestLocalization(localizationOptions);
 
 app.UseRouting();
 

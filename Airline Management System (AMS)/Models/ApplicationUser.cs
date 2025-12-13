@@ -8,16 +8,16 @@ namespace Airline_Management_System__AMS_.Models
         [Required]
         [StringLength(50, MinimumLength = 2)]
         [Display(Name = "First Name")]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = string.Empty;
 
         [Required]
         [StringLength(50, MinimumLength = 2)]
         [Display(Name = "Last Name")]
-        public string LastName { get; set; }
+        public string LastName { get; set; } = string.Empty;
 
         [Required]
         [Display(Name = "Role")]
-        public string Role { get; set; }
+        public string Role { get; set; } = string.Empty;
 
         [Display(Name = "Full Name")]
         public string FullName => $"{FirstName} {LastName}";
@@ -34,13 +34,13 @@ namespace Airline_Management_System__AMS_.Models
         public int VerificationResendCount { get; set; } = 0;
 
 
-        public string NationalId { get; set; }
+        public string NationalId { get; set; } = string.Empty;
 
 
-        public string PassportNumber { get; set; }
+        public string PassportNumber { get; set; } = string.Empty;
 
 
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; } = string.Empty;
 
 
     }

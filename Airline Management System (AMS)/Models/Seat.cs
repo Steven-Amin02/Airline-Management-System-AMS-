@@ -10,17 +10,17 @@ namespace Airline_Management_System__AMS_.Models
 
         [Required]
         [StringLength(5)]
-        public string SeatNumber { get; set; }
+        public string SeatNumber { get; set; } = string.Empty;
 
-        public string Class { get; set; }
+        public string Class { get; set; } = string.Empty;
 
         [ForeignKey("Flight")]
         public int FlightId { get; set; }
-        public Flight Flight { get; set; }
+        public Flight Flight { get; set; } = null!;
 
         [ForeignKey("Booking")]
         public int? BookingId { get; set; } // Seat مرتبط بالـ Booking بعد الحجز
-        public Booking Booking { get; set; }
+        public Booking? Booking { get; set; }
 
         public int SeatPrice { get; set; } = 100;
 
