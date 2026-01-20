@@ -51,53 +51,57 @@
                     <input type="hidden" asp-for="PassengerCount" value="1" />
                 </div>
 
-                <div style="text-align: center;">
+                <div style="text-align: center; display: flex; justify-content: center; gap: 15px;">
                     <button type="submit" class="search-btn">
                         <i class="fas fa-search"></i> Search Trips
                     </button>
+                    <a asp-controller="Home" asp-action="AllFlights" class="search-btn" style="text-decoration: none; background-color: #6c757d;">
+                        <i class="fas fa-list"></i> Show All Flights
+                    </a>
                 </div>
             </form>
             <br />
             @if (Model?.SearchResults != null && Model.SearchResults.Any())
             {
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Flight Number</th>
-                            <th>From</th>
-                            <th>To</th>
-                            <th>Departure</th>
-                            <th>Arrival</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Flight Number</th>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>Departure</th>
+                                <th>Arrival</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                         @foreach (var flight in Model.SearchResults)
                         {
-                            <tr>
-                                <td>@flight.FlightNumber</td>
-                                <td>@flight.Origin</td>
-                                <td>@flight.Destination</td>
-                                <td>@flight.DepartureTime.ToString("g")</td>
-								<td>@flight.ArrivalTime.ToString("g")</td>
-                                @if (!User.IsInRole("Admin")){
-                                <td>
-                                    <a asp-controller="Booking"
-                                       asp-action="Create"
-                                       asp-route-flightId="@flight.FlightId"
-                                       class="btn-primary">
-                                        Book Ticket
-                                    </a>
-                                </td>
+                                    <tr>
+                                        <td>@flight.FlightNumber</td>
+                                        <td>@flight.Origin</td>
+                                        <td>@flight.Destination</td>
+                                        <td>@flight.DepartureTime.ToString("g")</td>
+                                        <td>@flight.ArrivalTime.ToString("g")</td>
+                                @if (!User.IsInRole("Admin"))
+                                {
+                                            <td>
+                                                <a asp-controller="Booking"
+                                                   asp-action="Create"
+                                                   asp-route-flightId="@flight.FlightId"
+                                                   class="btn-primary">
+                                                    Book Ticket
+                                                </a>
+                                            </td>
                                 }
-                            </tr>
+                                    </tr>
                         }
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
             }
             else if (Model != null)
             {
-                <p style="text-align:center; margin-top:20px; font-size:18px;">No flights found.</p>
+                    <p style="text-align:center; margin-top:20px; font-size:18px;">No flights found.</p>
             }
 
         </div>
@@ -250,17 +254,17 @@
 </section>
 
 @section Scripts {
-    <script src="~/js/home.js" asp-append-version="true"></script>
-    <partial name="_ValidationScriptsPartial" />
+        <script src="~/js/home.js" asp-append-version="true"></script>
+        <partial name="_ValidationScriptsPartial" />
 }
 
 
 
 @if (TempData["BookingSuccess"] != null)
 {
-    <div id="bookingToast" class="toast-message">
+        <div id="bookingToast" class="toast-message">
         @TempData["BookingSuccess"]
-    </div>
+        </div>
 }
 
 <style>

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Airline_Management_System__AMS_.ViewModels.UserDashboardViewModel
+@{
     ViewData["Title"] = "User Dashboard";
 }
 
@@ -279,15 +280,15 @@
     <h3 class="section-title">Your Travel Stats</h3>
     <div class="stats-grid">
         <div class="stat-card">
-            <div class="stat-number">0</div>
+            <div class="stat-number">@Model.TotalBookings</div>
             <div class="stat-label">Total Bookings</div>
         </div>
         <div class="stat-card">
-            <div class="stat-number">0</div>
+            <div class="stat-number">@Model.UpcomingTrips</div>
             <div class="stat-label">Upcoming Trips</div>
         </div>
         <div class="stat-card">
-            <div class="stat-number">0</div>
+            <div class="stat-number">@Model.DestinationsVisited</div>
             <div class="stat-label">Destinations Visited</div>
         </div>
     </div>

@@ -72,6 +72,23 @@ namespace Airline_Management_System__AMS_.Controllers
             return View("Index", model);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> AllFlights()
+        {
+            var flights = await _context.Flights
+                .OrderBy(f => f.DepartureTime)
+                .ToListAsync();
+
+            var model = new FlightSearchViewModel
+            {
+                Origin = "Any",
+                Destination = "Any",
+                SearchResults = flights
+            };
+
+            return View("Index", model);
+        }
+
 
         public IActionResult Privacy()
         {

@@ -5,8 +5,6 @@ VisualStudioVersion = 17.14.36705.20
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airline Management System (AMS)", "Airline Management System (AMS)\Airline Management System (AMS).csproj", "{E48C4092-D9C9-4811-9D0A-ED121E3B9B9B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Airline Management System (AMS)", "Airline Management System (AMS)", "{604A77F3-8214-6812-815F-F41389DE3612}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirlineManagementSystem.Tests", "Airline Management System (AMS)\AirlineManagementSystem.Tests\AirlineManagementSystem.Tests.csproj", "{B69108B4-F419-4BCC-93E3-1FB717D95FC7}"
 EndProject
 Global
@@ -46,9 +44,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{B69108B4-F419-4BCC-93E3-1FB717D95FC7} = {604A77F3-8214-6812-815F-F41389DE3612}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AF260E43-BC1D-4BFA-BB52-074D067C396B}
