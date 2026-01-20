@@ -5,8 +5,7 @@ VisualStudioVersion = 17.14.36705.20
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airline Management System (AMS)", "Airline Management System (AMS)\Airline Management System (AMS).csproj", "{E48C4092-D9C9-4811-9D0A-ED121E3B9B9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirlineManagementSystem.Tests", "Airline Management System (AMS)\AirlineManagementSystem.Tests\AirlineManagementSystem.Tests.csproj", "{B69108B4-F419-4BCC-93E3-1FB717D95FC7}"
-EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,18 +28,7 @@ Global
 		{E48C4092-D9C9-4811-9D0A-ED121E3B9B9B}.Release|x64.Build.0 = Release|Any CPU
 		{E48C4092-D9C9-4811-9D0A-ED121E3B9B9B}.Release|x86.ActiveCfg = Release|Any CPU
 		{E48C4092-D9C9-4811-9D0A-ED121E3B9B9B}.Release|x86.Build.0 = Release|Any CPU
-		{B69108B4-F419-4BCC-93E3-1FB717D95FC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B69108B4-F419-4BCC-93E3-1FB717D95FC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B69108B4-F419-4BCC-93E3-1FB717D95FC7}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{B69108B4-F419-4BCC-93E3-1FB717D95FC7}.Debug|x64.Build.0 = Debug|Any CPU
-		{B69108B4-F419-4BCC-93E3-1FB717D95FC7}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B69108B4-F419-4BCC-93E3-1FB717D95FC7}.Debug|x86.Build.0 = Debug|Any CPU
-		{B69108B4-F419-4BCC-93E3-1FB717D95FC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B69108B4-F419-4BCC-93E3-1FB717D95FC7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B69108B4-F419-4BCC-93E3-1FB717D95FC7}.Release|x64.ActiveCfg = Release|Any CPU
-		{B69108B4-F419-4BCC-93E3-1FB717D95FC7}.Release|x64.Build.0 = Release|Any CPU
-		{B69108B4-F419-4BCC-93E3-1FB717D95FC7}.Release|x86.ActiveCfg = Release|Any CPU
-		{B69108B4-F419-4BCC-93E3-1FB717D95FC7}.Release|x86.Build.0 = Release|Any CPU
+
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
