@@ -29,7 +29,7 @@ public class BookingController : Controller
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Index()
     {
-        var booking =await _context.Bookings
+        var booking = await _context.Bookings
             .Include(b => b.Flight)
             .Include(b => b.Passenger)
             .ToListAsync();
@@ -48,7 +48,7 @@ public class BookingController : Controller
             return View(model);
         }
 
-    
+
         var seat = await _context.Seats
             .FirstOrDefaultAsync(s => s.SeatId == model.SelectedSeatId.Value);
 
@@ -134,7 +134,7 @@ public class BookingController : Controller
     </div>
 </div>
 ");
-        
+
         TempData["BookingSuccess"] = "Booking successful!";
         return RedirectToAction("Index", "Home");
     }
@@ -246,7 +246,7 @@ public class BookingController : Controller
             .Include(b => b.Passenger)
             .FirstOrDefaultAsync(b => b.Id == id && b.Passenger.UserId == userId);
 
-        if (!CanAccessBooking(booking)) return Forbid(); 
+        if (!CanAccessBooking(booking)) return Forbid();
 
         if (booking == null)
             return NotFound();
@@ -271,12 +271,12 @@ public class BookingController : Controller
             .FirstOrDefaultAsync(b => b.Id == id && b.Passenger.UserId == userId);
         var seat = await _context.Seats.FirstOrDefaultAsync(s => s.BookingId == booking.Id);
 
-        
+
 
         if (booking == null)
             return NotFound();
 
-        if (!CanAccessBooking(booking)) return Forbid(); 
+        if (!CanAccessBooking(booking)) return Forbid();
 
         if (booking.Status != BookingStatus.Booked)
             return BadRequest("This booking cannot be cancelled.");
@@ -341,7 +341,7 @@ public class BookingController : Controller
 
         seat.IsAvailable = true;
 
-       
+
 
         if (seat != null)
         {
@@ -349,7 +349,7 @@ public class BookingController : Controller
         }
         await _context.SaveChangesAsync();
 
-        
+
 
 
         return RedirectToAction("MyBookings");
@@ -388,7 +388,7 @@ public class BookingController : Controller
             TicketPrice = booking.TicketPrice,
             Seats = seats,
             BookedSeats = bookedSeats,
-            Class= seats.FirstOrDefault(s => s.SeatNumber == booking.SeatNumber)?.Class
+            Class = seats.FirstOrDefault(s => s.SeatNumber == booking.SeatNumber)?.Class
         };
 
         ViewBag.Flight = booking.Flight;
@@ -511,7 +511,7 @@ public class BookingController : Controller
             return NotFound();
         }
 
-       
+
 
         return View(booking);
     }
@@ -611,15 +611,15 @@ public class BookingController : Controller
             BookingId = booking.Id,
             FlightId = booking.FlightId.Value,
             PassengerId = booking.PassengerId,
-            PassengerName = booking.Passenger.FullName, 
-            FlightNumber = booking.Flight.FlightNumber, 
+            PassengerName = booking.Passenger.FullName,
+            FlightNumber = booking.Flight.FlightNumber,
             CurrentSeat = booking.SeatNumber,
             TicketPrice = booking.TicketPrice,
             Seats = seats,
             BookedSeats = bookedSeats,
             Class = seats.FirstOrDefault(s => s.SeatNumber == booking.SeatNumber).Class,
             Status = booking.Status
-            
+
         };
 
         return View(model);
@@ -661,7 +661,7 @@ public class BookingController : Controller
 
             booking.SeatNumber = model.CurrentSeat;
             booking.TicketPrice = model.TicketPrice;
-            booking.Status = model.Status ;
+            booking.Status = model.Status;
 
             var seat = await _context.Seats.FirstOrDefaultAsync(s => s.BookingId == booking.Id);
             var flight = await _context.Flights.FindAsync(booking.FlightId);
@@ -671,19 +671,19 @@ public class BookingController : Controller
                 seat.IsAvailable = true;
                 flight.AvailableSeats++;
             }
-            if (model.Status == BookingStatus.Booked && seat.IsAvailable==true)
+            if (model.Status == BookingStatus.Booked && seat.IsAvailable == true)
             {
-                seat.IsAvailable = false ;
+                seat.IsAvailable = false;
                 flight.AvailableSeats--;
             }
 
             _context.Update(booking);
             await _context.SaveChangesAsync();
 
-          
 
-                var newSeat = await _context.Seats
-                    .FirstOrDefaultAsync(s => s.FlightId == booking.FlightId && s.SeatNumber == booking.SeatNumber);
+
+            var newSeat = await _context.Seats
+                .FirstOrDefaultAsync(s => s.FlightId == booking.FlightId && s.SeatNumber == booking.SeatNumber);
 
             await _emailSender.SendEmailAsync(
                 booking.Passenger.Email,

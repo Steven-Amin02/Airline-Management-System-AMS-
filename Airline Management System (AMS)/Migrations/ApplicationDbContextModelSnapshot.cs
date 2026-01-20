@@ -124,19 +124,19 @@ namespace Airline_Management_System__AMS_.Migrations
                         {
                             Id = "admin-user-id-0001",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b21c83c3-c532-49e5-b42b-f5cce211292f",
+                            ConcurrencyStamp = "b9f0b717-3782-4f3d-bfad-aebf66ac2223",
                             Email = "admin@example.com",
-                            EmailConfirmationCode = "00b23cf3-716f-4612-8eb6-ca3ec22a40b5",
+                            EmailConfirmationCode = "dc81d6d3-152e-4e1a-a928-46c8b0d34936",
                             EmailConfirmed = true,
                             FirstName = "System",
                             LastName = "Admin",
-                            LastVerificationEmailSent = new DateTime(2025, 12, 10, 18, 20, 10, 598, DateTimeKind.Utc).AddTicks(3712),
+                            LastVerificationEmailSent = new DateTime(2026, 1, 20, 14, 26, 26, 182, DateTimeKind.Utc).AddTicks(1079),
                             LockoutEnabled = false,
                             NationalId = "00000000000000",
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN",
                             PassportNumber = "TEMP",
-                            PasswordHash = "AQAAAAIAAYagAAAAEN3YosHkjT0l/l61PkK54IqalRzYDCGscvVSHoLX+hWiNV0A82h6nuj79Hl67Y2vzQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFpYS9r2LYRxjgO45XvkWvFYWm6xCbRUQdx235gBtNonzqgcgVvSirrvAOFhWXlYgw==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
                             Role = "Admin",
@@ -182,7 +182,7 @@ namespace Airline_Management_System__AMS_.Migrations
 
                     b.HasIndex("PassengerId");
 
-                    b.ToTable("Bookings", (string)null);
+                    b.ToTable("Bookings");
                 });
 
             modelBuilder.Entity("Airline_Management_System__AMS_.Models.Feedback", b =>
@@ -217,7 +217,7 @@ namespace Airline_Management_System__AMS_.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Feedbacks", (string)null);
+                    b.ToTable("Feedbacks");
                 });
 
             modelBuilder.Entity("Airline_Management_System__AMS_.Models.Flight", b =>
@@ -258,7 +258,7 @@ namespace Airline_Management_System__AMS_.Migrations
                     b.HasIndex("FlightNumber")
                         .IsUnique();
 
-                    b.ToTable("Flights", (string)null);
+                    b.ToTable("Flights");
                 });
 
             modelBuilder.Entity("Airline_Management_System__AMS_.Models.Passenger", b =>
@@ -312,7 +312,7 @@ namespace Airline_Management_System__AMS_.Migrations
                         .IsUnique()
                         .HasFilter("[UserId] IS NOT NULL");
 
-                    b.ToTable("Passengers", (string)null);
+                    b.ToTable("Passengers");
                 });
 
             modelBuilder.Entity("Airline_Management_System__AMS_.Models.Seat", b =>
@@ -336,13 +336,13 @@ namespace Airline_Management_System__AMS_.Migrations
                     b.Property<bool>("IsAvailable")
                         .HasColumnType("bit");
 
-                    b.Property<int>("SeatPrice")
-                        .HasColumnType("int");
-
                     b.Property<string>("SeatNumber")
                         .IsRequired()
                         .HasMaxLength(5)
                         .HasColumnType("nvarchar(5)");
+
+                    b.Property<int>("SeatPrice")
+                        .HasColumnType("int");
 
                     b.HasKey("SeatId");
 
@@ -350,7 +350,7 @@ namespace Airline_Management_System__AMS_.Migrations
 
                     b.HasIndex("FlightId");
 
-                    b.ToTable("Seats", (string)null);
+                    b.ToTable("Seats");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

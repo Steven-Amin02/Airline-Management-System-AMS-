@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Airline_Management_System__AMS_.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251209233011_Adding Admin User")]
-    partial class AddingAdminUser
+    [Migration("20260120142627_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,6 +67,10 @@ namespace Airline_Management_System__AMS_.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
+                    b.Property<string>("NationalId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -75,10 +79,15 @@ namespace Airline_Management_System__AMS_.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<string>("PassportNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("PhoneNumberConfirmed")
@@ -118,17 +127,20 @@ namespace Airline_Management_System__AMS_.Migrations
                         {
                             Id = "admin-user-id-0001",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7eed2b1b-24cf-44b0-a80f-73602742e0f3",
+                            ConcurrencyStamp = "b9f0b717-3782-4f3d-bfad-aebf66ac2223",
                             Email = "admin@example.com",
-                            EmailConfirmationCode = "ae7330c6-1e90-408c-aac6-53736aa1fc80",
+                            EmailConfirmationCode = "dc81d6d3-152e-4e1a-a928-46c8b0d34936",
                             EmailConfirmed = true,
                             FirstName = "System",
                             LastName = "Admin",
-                            LastVerificationEmailSent = new DateTime(2025, 12, 9, 23, 30, 5, 350, DateTimeKind.Utc).AddTicks(4912),
+                            LastVerificationEmailSent = new DateTime(2026, 1, 20, 14, 26, 26, 182, DateTimeKind.Utc).AddTicks(1079),
                             LockoutEnabled = false,
+                            NationalId = "00000000000000",
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO3NdLIchZm9VHOxcunJcP+Pv5FqZ58/bjveJXhTRiPWBjwseZCA1USkffZ9jemxQQ==",
+                            PassportNumber = "TEMP",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFpYS9r2LYRxjgO45XvkWvFYWm6xCbRUQdx235gBtNonzqgcgVvSirrvAOFhWXlYgw==",
+                            PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
                             Role = "Admin",
                             SecurityStamp = "",
@@ -244,9 +256,6 @@ namespace Airline_Management_System__AMS_.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
                     b.HasKey("FlightId");
 
                     b.HasIndex("FlightNumber")
@@ -281,8 +290,9 @@ namespace Airline_Management_System__AMS_.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("NationalId")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .IsRequired()
+                        .HasMaxLength(14)
+                        .HasColumnType("nvarchar(14)");
 
                     b.Property<string>("PassportNumber")
                         .IsRequired()
@@ -293,10 +303,17 @@ namespace Airline_Management_System__AMS_.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("PassportNumber")
                         .IsUnique();
+
+                    b.HasIndex("UserId")
+                        .IsUnique()
+                        .HasFilter("[UserId] IS NOT NULL");
 
                     b.ToTable("Passengers");
                 });
@@ -326,6 +343,9 @@ namespace Airline_Management_System__AMS_.Migrations
                         .IsRequired()
                         .HasMaxLength(5)
                         .HasColumnType("nvarchar(5)");
+
+                    b.Property<int>("SeatPrice")
+                        .HasColumnType("int");
 
                     b.HasKey("SeatId");
 
@@ -520,6 +540,15 @@ namespace Airline_Management_System__AMS_.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Airline_Management_System__AMS_.Models.Passenger", b =>
+                {
+                    b.HasOne("Airline_Management_System__AMS_.Models.ApplicationUser", "User")
+                        .WithOne("PassengerProfile")
+                        .HasForeignKey("Airline_Management_System__AMS_.Models.Passenger", "UserId");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Airline_Management_System__AMS_.Models.Seat", b =>
                 {
                     b.HasOne("Airline_Management_System__AMS_.Models.Booking", "Booking")
@@ -586,6 +615,11 @@ namespace Airline_Management_System__AMS_.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Airline_Management_System__AMS_.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("PassengerProfile");
                 });
 
             modelBuilder.Entity("Airline_Management_System__AMS_.Models.Flight", b =>

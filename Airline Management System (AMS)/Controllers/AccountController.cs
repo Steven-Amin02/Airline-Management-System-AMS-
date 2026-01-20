@@ -32,8 +32,6 @@ public class AccountController : Controller
     [HttpGet]
     public IActionResult Register()
     {
-        var roles = new List<string> { "User", "Admin" };
-        ViewBag.Roles = roles;
         return View();
     }
 
@@ -64,7 +62,7 @@ public class AccountController : Controller
             LastName = model.LastName,
             EmailConfirmed = false,
             EmailConfirmationCode = code,
-            Role = model.Role,
+            Role = "User",
             NationalId = model.NationalId,
             PassportNumber = model.PassportNumber,
             PhoneNumber = model.PhoneNumber
@@ -79,10 +77,10 @@ public class AccountController : Controller
         }
 
 
-        if (!await _roleManager.RoleExistsAsync(model.Role))
-            await _roleManager.CreateAsync(new IdentityRole(model.Role));
+        if (!await _roleManager.RoleExistsAsync("User"))
+            await _roleManager.CreateAsync(new IdentityRole("User"));
 
-        await _userManager.AddToRoleAsync(user, model.Role);
+        await _userManager.AddToRoleAsync(user, "User");
 
         user.LastVerificationEmailSent = DateTime.UtcNow;
         await _userManager.UpdateAsync(user);
@@ -192,7 +190,7 @@ public class AccountController : Controller
     }
 
 
-    
+
     [HttpPost]
     public async Task<IActionResult> ResendCode(string userId)
     {

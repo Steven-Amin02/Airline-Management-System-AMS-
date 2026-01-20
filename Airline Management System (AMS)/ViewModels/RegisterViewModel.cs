@@ -26,11 +26,10 @@ namespace Airline_Management_System__AMS_.ViewModels
         [StringLength(50, MinimumLength = 2, ErrorMessage = "First Name must be between 2 and 50 characters.")]
         public string LastName { get; set; }
 
-        [Required(ErrorMessage = "Please select a role")]
         [Display(Name = "Role")]
-        public string Role { get; set; }
+        public string Role { get; set; } = "User";
 
-      
+
         [Required]
         [Display(Name = "National ID")]
         [StringLength(14, MinimumLength = 14, ErrorMessage = "National ID must be 14 digits")]
