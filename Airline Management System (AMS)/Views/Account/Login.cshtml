@@ -302,6 +302,12 @@
             @TempData["Success"]
         </div>
     }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Error"]
+        </div>
+    }
     @if(ViewData.ModelState.ErrorCount > 0)
     {
     <div asp-validation-summary="All" class="validation-summary text-danger"></div>

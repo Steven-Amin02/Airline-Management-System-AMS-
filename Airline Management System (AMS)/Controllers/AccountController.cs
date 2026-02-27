@@ -338,8 +338,8 @@ public class AccountController : Controller
         var user = await _userManager.FindByEmailAsync(email);
         if (user == null)
         {
-            ModelState.AddModelError("", "No account found with this email.");
-            return View();
+            TempData["Error"] = "No account found with this email.";
+            return RedirectToAction("Login");
         }
 
         var code = new Random().Next(100000, 999999).ToString();
@@ -348,7 +348,7 @@ public class AccountController : Controller
 
         await _userManager.UpdateAsync(user);
 
-        await _emailSender.SendEmailAsync(
+            await _emailSender.SendEmailAsync(
      user.Email,
      "Email Verification Code",
      $@"
@@ -392,10 +392,9 @@ public class AccountController : Controller
         </div>
     </div>
     ");
+            TempData["Success"] = "Verification code sent to your email.";
+        
 
-
-
-        TempData["Success"] = "Verification code sent to your email.";
         return RedirectToAction("ResetPassword", new { userId = user.Id });
     }
     [HttpGet]

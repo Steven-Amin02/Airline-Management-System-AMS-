@@ -158,7 +158,7 @@
                         </div>
                     </div>
 
-                    @* <!-- Countdown (if upcoming flight) -->
+                     <!-- Countdown (if upcoming flight) -->
                     @if (booking.Status == BookingStatus.Booked && booking.Flight.DepartureTime > DateTime.Now)
                     {
                         <div class="countdown-section">
@@ -169,7 +169,7 @@
                                 Calculating...
                             </span>
                         </div> 
-                    }*@
+                    }
 
                     <!-- Action Buttons -->
                     <div class="action-buttons">
@@ -982,7 +982,7 @@
             });
         });
 
-        @* // Countdown timers
+         // Countdown timers
         function updateCountdowns() {
             const timers = document.querySelectorAll('.countdown-timer');
 
@@ -1012,7 +1012,7 @@
         updateCountdowns();
 
         // Update every minute
-        setInterval(updateCountdowns, 60000); *@
+        setInterval(updateCountdowns, 60000); 
 
         // Hover effects for booking cards
         bookingCards.forEach(card => {
